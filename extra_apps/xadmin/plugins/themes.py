@@ -9,6 +9,7 @@ from xadmin.sites import site
 from xadmin.models import UserSettings
 from xadmin.views import BaseAdminPlugin, BaseAdminView
 from xadmin.util import static, json
+import requests
 import six
 if six.PY2:
     import urllib
@@ -71,23 +72,28 @@ class ThemePlugin(BaseAdminPlugin):
             else:
                 ex_themes = []
                 try:
-                    h = httplib2.Http()
-                    resp, content = h.request("https://bootswatch.com/api/3.json", 'GET', '',
-                                              headers={"Accept": "application/json", "User-Agent": self.request.META['HTTP_USER_AGENT']})
-                    if six.PY3:
-                        content = content.decode()
-                    watch_themes = json.loads(content)['themes']
+                    flag = False
+                    if flag:
+                        h = httplib2.Http()
+                        resp, content = h.request("http://bootswatch.com/api/3.json", 'GET', '',
+                                                  headers={"Accept": "application/json",
+                                                           "User-Agent": self.request.META['HTTP_USER_AGENT']})
+                        watch_themes = json.loads(content)['themes']
+                    else:
+                        content = requests.get("https://bootswatch.com/api/3.json")
+                        watch_themes = json.loads(content.text)['themes']
+
                     ex_themes.extend([
-                        {'name': t['name'], 'description': t['description'],
-                            'css': t['cssMin'], 'thumbnail': t['thumbnail']}
-                        for t in watch_themes])
+                                         {'name': t['name'], 'description': t['description'],
+                                          'css': t['cssMin'], 'thumbnail': t['thumbnail']}
+                                         for t in watch_themes])
                 except Exception as e:
                     print(e)
 
                 cache.set(THEME_CACHE_KEY, json.dumps(ex_themes), 24 * 3600)
                 themes.extend(ex_themes)
 
-        nodes.append(loader.render_to_string('xadmin/blocks/comm.top.theme.html', {'themes': themes, 'select_css': select_css}))
-
+        nodes.append(
+            loader.render_to_string('xadmin/blocks/comm.top.theme.html', {'themes': themes, 'select_css': select_css}))
 
 site.register_plugin(ThemePlugin, BaseAdminView)
