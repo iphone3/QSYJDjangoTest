@@ -1,0 +1,68 @@
+#header{
+	border: none;
+	box-shadow: 0 3px 5px 2px #AAAAAA;
+	margin-bottom: 5px;
+}
+#header > .content > .nav-t > .login{
+	float: right;
+	line-height: 100px;
+	font-size: 16px;
+	color: #999999;
+}
+
+#rg-container{
+	height: 525px;
+	text-align: center;
+}
+#rg-container > .register-wrap{
+	width: 380px;
+	height: 380px;
+	display: inline-block;
+	border: 1px solid #BBBBBB;
+	vertical-align: middle;
+	background: white;
+}
+
+#rg-container > .register-wrap > form{
+	padding: 30px;
+}
+#rg-container > .register-wrap > form > div{
+	border: 1px solid #BBBBBB;
+	margin-bottom: 30px;
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	font-size: 16px;
+}
+#rg-container > .register-wrap > form > div > label{
+	width: 69px;
+	text-align: center;
+	display: inline-block;
+	border-right: 1px solid #BBBBBB;
+}
+#rg-container > .register-wrap > form > div > input{
+	width: 205px;
+	border: none;
+	font-size: 16px;
+	padding-left: 20px;
+}
+#rg-container > .register-wrap > form > .register-bt{
+	width: 320px;
+	height: 40px;
+	font-size: 20px;
+	background: red;
+	color: white;
+	line-height: 40px;
+}
+
+#rg-container > i{
+	width: 0;
+	height: 525px;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+/* #footer{
+	background-color: white;
+	color: black;
+} */

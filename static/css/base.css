@@ -1,0 +1,326 @@
+body{
+	width: 100%;
+	background-color: rgba(240, 243, 239, 1);
+	font-size: 14px;
+	text-align: center;
+}
+
+/******* 工具类样式 *******/
+/* 清除浮动 */
+.clearfix:after {
+    content:""; 
+    display: block; 
+    clear:both; 
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.mr-10{
+	margin-right: 10px;
+}
+.ml-10{
+	margin-right: 10px;
+}
+.mr-20{
+	margin-right: 20px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.ml-20{
+	margin-left: 20px;
+}
+.mb-20{
+	margin-bottom: 20px;
+}
+.mouse_p{  /* 鼠标-手指形状 */
+	cursor:pointer;
+	user-select:none;
+}
+.hide{
+	display: none;
+}
+.error-input{
+	border-color: red!important;
+}
+
+/* 顶部 */
+#shortcut{
+	width: 100%;
+	height: 30px;
+	line-height: 20px;
+	background-color: rgba(238, 238, 238, 1);
+	font-size: 12px;
+}
+#shortcut > .content{
+	width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	font-size: 12px;
+	line-height: 30px;
+}
+#shortcut > .content > ul > li{
+	float: left;
+}
+#shortcut > .content .welcome{
+	color: rgba(102,102,102,1);
+}
+#shortcut > .content .login a{
+	color: black;
+	margin-right: 5px;
+}
+#shortcut > .content .register{
+	color: black;
+}
+#shortcut > .content .register > a{
+	color: red;
+}
+#shortcut .content .user-name > img{
+	width: 18px;
+	border-radius: 50%;
+	vertical-align: middle;
+	margin-left: 5px;
+}
+#shortcut .content .car{
+	text-align: right;
+	width: 65px;
+	vertical-align: middle;
+	background: url(../img/car.png) no-repeat 8px 4px;
+	background-size: 20px;
+}
+#shortcut .content .car > a{
+	color: red;
+	display: inline-block;
+}
+#shortcut .content .help > a{
+	color: rgba(102,102,102,1);
+}
+
+
+/* 头部 */
+#header{
+	width: 100%;
+	height: 140px;
+	background: white;
+	border-bottom: 2px solid red;
+}
+#header > i{
+	height: 140px;
+	vertical-align: middle;
+	width: 0;
+	display: inline-block;
+}
+#header > .content{
+	width: 1200px;
+	margin: 0 auto;
+	vertical-align: middle;
+	display: inline-block;
+}
+#header > .content > .nav-t{
+	height: 100px;
+	text-align: center;
+}
+#header > .content > .nav-t > .logo > a > img{
+	width: 110px;
+	vertical-align: middle;
+}
+#header > .content > .nav-t > .logo > b{
+	font-size: 48px;
+	font-weight: 900;
+	color: red;
+	vertical-align: middle;
+}
+#header > .content > .nav-t > .logo > i{
+	font-size: 36px;
+	font-weight: 900;
+	color: black;
+	margin-left: 15px;
+	vertical-align: middle;
+}
+#header > .content > .nav-t > .search{
+	width: 400px;
+	/* margin: 0 auto; */
+	padding: 30px 0;
+	display: inline-block;
+}
+#header > .content > .nav-t > .search > .s-input{
+	width: 330px;
+	position: relative;
+}
+#header > .content > .nav-t > .search > .s-input > input{
+	width: 313px;
+	height: 34px;
+	display: inline-block;
+	border: 1px solid red;
+	border-width: 2px;
+	font-size: 16px;
+	padding-left: 15px;
+}
+#header > .content > .nav-t > .search > .s-input > ul{
+	position: absolute;
+	width: 398px;
+	background: white;
+	border: 1px solid #BBBBBB;
+	display: none;
+	z-index: 999;
+}
+#header > .content > .nav-t > .search > .s-input > ul > li{
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+}
+#header > .content > .nav-t > .search > .s-input > ul > li:last-child{
+	float: right;
+	color: #bbbbbb;
+	border-top: 1px solid #BBBBBB;
+	width: 100%;
+	text-align: right;
+}
+#header > .content > .nav-t > .search > .s-input > ul i{
+	float: left;
+	color: #5d8ebf;
+	font-size: 12px;
+	margin-left: 8px;
+}
+#header > .content > .nav-t > .search > .s-input > ul b{
+	float: right;
+	color: #bbbbbb;
+	font-size: 12px;
+}
+#header > .content > .nav-t > .search > .s-bt{
+	width: 70px;
+	height: 40px;
+	background: red;
+	text-align: center;
+	line-height: 40px;
+	color: white;
+}
+#header > .content > .nav-t > .car{
+	width: 200px;
+	height: 100px;
+	margin-right: 50px;
+	position: relative;
+}
+#header > .content > .nav-t > .car > .car-bt{
+	margin: 30px 0;
+	height: 38px;
+	border: 1px solid red;
+	text-align: center;
+	line-height: 40px;
+	color: red;
+	padding-left: 30px;
+	background: url(../img/car-red.png) no-repeat 50px 7px;
+	background-size: 25px;
+}
+#header > .content > .nav-t > .car > .car-bt > i{
+	color: black;
+}
+#header > .content > .nav-t > .car > .car-list{
+	width: 310px;
+	border: 1px solid red;
+	position: absolute;
+	right: 0;
+	top: 69px;
+	background: white;
+	display: none;
+	z-index: 9999;
+}
+#header > .content > .nav-t > .car > .car-list > .car-item{
+	height: 79px;
+	border-bottom: 1px dashed rgba(178,178,178,1);
+}
+#header > .content > .nav-t > .car > .car-list > .car-item > .img{
+	width: 79px;
+	height: 79px;
+}
+#header > .content > .nav-t > .car > .car-list > .car-item img{
+	width: 79px;
+}
+#header > .content > .nav-t > .car > .car-list > .car-item > .name{
+	margin-left: 10px;
+	width: 100px;
+	color: rgba(102,102,102,1);
+	margin-top: 10px;
+	text-align: left;
+	font-size: 14px;
+}
+#header > .content > .nav-t > .car > .car-list > .car-item > .price{
+	margin-top: 10px;
+	text-align: right;
+	color: rgba(102,102,102,1);
+	margin-right: 10px;
+}
+#header > .content > .nav-t > .car > .car-list > .car-item > .price > p{
+	margin-bottom: 10px;
+}
+#header > .content > .nav-t > .car > .car-list > .shopping{
+	padding: 10px;
+	height: 20px;
+	line-height: 20px;
+	background: rgba(238,238,238,1);
+}
+#header > .content > .nav-t > .car > .car-list > .shopping > .num{
+	color: rgb(102,102,102,1);
+}
+#header > .content > .nav-t > .car > .car-list > .shopping > .shopping-bt{
+	width: 76px;
+	height: 24px;
+	border-radius: 5px 5px 5px 5px;
+	background-color: rgba(229, 28, 35, 1);
+	color: rgba(255, 255, 255, 1);
+	font-size: 14px;
+	text-align: center;
+	line-height: 24px;
+}
+#header > .content > .nav-b{
+	height: 40px;
+	line-height: 40px;
+}
+#header > .content > .nav-b > .navbar-item{
+	width: 120px;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 900;
+}
+#header > .content > .nav-b > .navbar-item > a{
+	color: black;
+}
+#header > .content > .nav-b > .active > a{
+	color: red;
+}
+
+/* 主体内容 */
+#qs-container{
+	width: 1200px;
+	/* height: 3400px; */
+	/*background: purple;*/
+	margin: 0 auto;
+}
+
+#qs-container > .tail-zone{
+	height: 40px;
+	line-height: 40px;
+	text-align: left;
+	padding-left: 20px;
+	background: white;
+}
+
+
+/* 底部 */
+#footer{
+	width: 100%;
+	height: 98px;
+	line-height: 20px;
+	background-color: rgba(0, 0, 0, 1);
+	font-size: 14px;
+	text-align: center;
+	color: white;
+	overflow: hidden;
+}
+#footer p:first-child{
+	margin-top: 20px;
+	margin-bottom: 15px;
+}

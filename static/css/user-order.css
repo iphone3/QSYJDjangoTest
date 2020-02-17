@@ -1,0 +1,155 @@
+#order-container{
+	width: 1200px;
+	margin: 10px auto;
+	padding: 15px;
+	background: white;
+	text-align: left;
+}
+#order-container > .nav-bar{
+	
+}
+#order-container > .nav-bar > .nav-item{
+	float: left;
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	width: 120px;
+	text-align: center;
+	font-weight: 700;
+	cursor:pointer;
+	user-select:none;
+}
+#order-container > .nav-bar > .nav-item.active{
+	border-bottom: 4px solid red;
+}
+#order-container > .nav-bar > .nav-item > i{
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: red;
+	color: white;
+	text-align: center;
+	line-height: 18px;
+	right: 26px;
+	top: -6px;
+}
+
+#order-container > .order-main{}
+#order-container > .order-main > .order-wrapper{
+	padding-top: 15px;
+}
+#order-container > .order-main > .order-wrapper > .order-item{
+	margin-bottom: 15px;
+	border: 1px solid #BBBBBB;
+}
+#order-container > .order-main > .order-wrapper > .order-item:last-child{
+	margin-bottom: 0;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-title{
+	background: #EEEEEE;
+	height: 35px;
+	line-height: 35px;
+	padding-left: 20px;
+	font-size: 13px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-title > i{
+	margin-right: 80px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-title > b{
+	color: #FF6C00;
+}
+
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct{
+	/* height: 80px; */
+	/* padding: 10px; */
+	position: relative;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper{
+	width: 550px;
+	border-right: 1px solid #BBBBBB;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper > .goods-item{
+	padding: 10px;
+	border-bottom: 1px solid #BBBBBB;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper > .goods-item:last-child{
+	border-bottom: none;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper > .goods-item > .img > img{
+	width: 80px;
+	margin-right: 20px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper > .goods-item > .name{
+	width: 210px;
+	margin-right: 90px;
+	line-height: 22px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .goods-wrapper > .goods-item > .num{
+	height: 80px;
+	line-height: 80px;
+	margin-right: 90px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .user{
+	padding-left: 20px;
+	margin-right: 120px;
+	margin-left: 30px;
+	vertical-align: middle;
+	display: inline-block;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .user > img{
+	width: 20px;
+	vertical-align: middle;
+	display: inline-block;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .price{
+	font-weight: 700;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 210px;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .again-bt,
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .sub-bt{
+	height: 30px;
+	line-height: 30px;
+	width: 100px;
+	background: red;
+	border-radius: 5px;
+	color: white;
+	text-align: center;
+	margin-right: 10px;
+	font-size: 13px;
+	vertical-align: middle;
+	display: inline-block;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .appraise-bt,
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .cancel-bt{
+	color: #666666;
+	height: 30px;
+	line-height: 30px;
+	width: 100px;
+	border-radius: 5px;
+	text-align: center;
+	margin-right: 10px;
+	font-size: 13px;
+	vertical-align: middle;
+	display: inline-block;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .line{
+	display: inline-block;
+	width: 0px;
+	background: red;
+	vertical-align: middle;
+}
+#order-container > .order-main > .order-wrapper > .order-item > .order-ct > .time{
+	position: absolute;
+	right: 30px;
+	top: 7px;
+	color: #666666;
+	padding-left: 22px;
+	background: url(../img/icon6.png) no-repeat left center;
+	background-size: 22px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+}

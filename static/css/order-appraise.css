@@ -1,0 +1,120 @@
+#appraise-container{
+	width: 1200px;
+	margin: 10px auto;
+}
+
+#appraise-container > .title{
+	margin-bottom: 20px;
+}
+#appraise-container > .title > h3{
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 40px;
+}
+#appraise-container > .title > p{
+	font-size: 17px;
+	line-height: 30px;
+}
+#appraise-container > .title > p > i{
+	margin: 0 30px;
+}
+
+
+#appraise-container > .content{
+	background: white;
+}
+
+#appraise-container > .content > .goods-wrapper{
+	width: 320px;
+	border-right: 1px solid #BBBBBB;
+	height: 320px;
+}
+#appraise-container > .content > .goods-wrapper > img{
+	margin-top: 40px;
+	width: 140px;
+	margin-bottom: 10px;
+}
+#appraise-container > .content > .goods-wrapper > p{
+	width: 220px;
+	margin: 0 auto;
+	line-height: 18px;
+	margin-bottom: 5px;
+	color: #666666;
+}
+
+#appraise-container > .content > .appraise-wrapper{
+	padding:0 40px 0;
+	text-align: left;
+	width: 780px;
+}
+#appraise-container > .content > .appraise-wrapper > .grade{
+	margin-bottom: 15px;
+	margin-top: 25px;
+}
+#appraise-container > .content > .appraise-wrapper > .grade > b{
+	line-height: 22px;
+}
+#appraise-container > .content > .appraise-wrapper > .grade > .star{
+	vertical-align: middle;
+}
+
+#appraise-container > .content > .appraise-wrapper > .appraise-ip{}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > b{
+	margin-right: 50px;
+	height: 250px;
+}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > .wr > textarea{
+	outline: none;
+	padding: 7px;
+	margin-bottom: 15px;
+}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > .wr > input{
+	margin-bottom: 15px;
+	width: 600px;
+}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > .wr > .show-img > img{
+	width: 50px;
+	height:50px;
+	vertical-align: top;
+}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > .wr > .show-img > .num{
+	display: inline-block;
+	height: 40px;
+	width: 180px;
+	border: 1px solid #BBBBBB;
+	line-height: 40px;
+	vertical-align: top;
+	margin-left: 10px;
+	padding: 5px;
+	color: #666666;
+}
+#appraise-container > .content > .appraise-wrapper > .appraise-ip > .wr > .show-img > .num > i{
+	color: red;
+}
+
+#appraise-container > .tail{
+	width: 1200px;
+	margin: 20px auto;
+	background: white;
+	padding: 20px 0;
+}
+#appraise-container > .tail > .sub-bt{
+	width: 180px;
+	height: 40px;
+	line-height: 40px;
+	color: white;
+	background: red;
+	border-radius: 5px;
+	margin: 0 auto;
+}
+
+/* 评分样式 */
+#appraise-container > .content > .appraise-wrapper > .grade > .star{padding-left:50px;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star .star_score{ float:left;}
+.star_list{height:21px;margin:50px; line-height:21px;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star p,#appraise-container > .content > .appraise-wrapper > .grade > .star .attitude{ padding-left:20px; line-height:21px; display:inline-block;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star p span{ color:#C00; font-size:16px; font-family:Georgia, "Times New Roman", Times, serif;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star > .star_score { background:url(../img/stark2.png); width:160px; height:21px;  position:relative; }
+#appraise-container > .content > .appraise-wrapper > .grade > .star > .star_score a{ height:21px; display:block; text-indent:-999em; position:absolute;left:0;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star > .star_score a:hover{ background:url(../img/stars2.png);left:0;}
+#appraise-container > .content > .appraise-wrapper > .grade > .star > .star_score a.clibg{ background:url(../img/stars2.png);left:0;}

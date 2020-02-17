@@ -1,0 +1,93 @@
+#user-container{
+	width: 1200px;
+	margin: 20px auto;
+}
+#user-container > .side-wrapper{
+	width: 200px;
+	border: 1px solid #BBBBBB;
+}
+
+#user-container > .side-wrapper > .side-item{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #BBBBBB;
+	text-align: left;
+	padding-left: 24px;
+	font-size: 18px;
+	font-weight: 800;
+	background: url(../img/icon-g.png) no-repeat 160px center;
+	background-color: #F8F8F8;
+}
+#user-container > .side-wrapper > .side-item:last-child{
+	border-bottom: 0;
+}
+#user-container > .side-wrapper > .side-item.active{
+	border-left: 5px solid #666666;
+	background: url(../img/icon-l.png) no-repeat 160px center;
+	background-color: white;
+}
+
+#user-container > .main-wrapper{
+	width: 960px;
+	height: 540px;
+	background: white;
+	border: 1px solid #BBBBBB;
+	text-align: left;
+}
+#user-container > .main-wrapper > .title{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+	font-size: 18px;
+	color: #666666;
+	background: #EEEEEE;
+	margin-bottom: 10px;
+}
+#user-container > .main-wrapper > .detail{
+	padding-left: 120px;
+}
+#user-container > .main-wrapper > .detail > .line{
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+#user-container > .main-wrapper > .detail > .line > i{
+	color: red;
+}
+#user-container > .main-wrapper > .detail > .line > span{
+	margin-right: 10px;
+}
+#user-container > .main-wrapper > .detail > .line > input{
+	height: 25px;
+	vertical-align: middle;
+}
+#user-container > .main-wrapper > .detail > .img-wrapper{
+	margin-left: 62px;
+	margin-top: 5px;
+}
+#user-container > .main-wrapper > .detail > .img-wrapper > p{
+	margin-bottom: 8px;
+}
+#user-container > .main-wrapper > .detail > .img-wrapper > .img{
+	border: 1px solid #BBBBBB;
+	width: 500px;
+	height: 200px;
+}
+#user-container > .main-wrapper > .detail > .img-wrapper > .img > img{
+	width: 160px;
+	height: 160px;
+	margin: 20px auto;
+	display: block;
+}
+
+#user-container > .main-wrapper > .sub-bt{
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	background: #666666;
+	color: white;
+	margin: 15px 0;
+	margin-left: 180px;
+	border-radius: 4px;
+}

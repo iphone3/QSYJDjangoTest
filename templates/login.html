@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全视眼镜商城 | 登录</title>
+		<!-- 样式重置 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+		<!-- 基础样式 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/login.css"/>
+	</head>
+	
+	<body>
+		<!-- 头部 -->
+        {% include "header_tp.html" with title='欢迎登录' is_show=False %}
+
+		<!-- 主体内容 -->
+		<div id="lg-container">
+			<div class="login-wrap">
+				<div class="login-form">
+					<form action="/login/" method="post">
+                        {% csrf_token %}
+						<div class="user-wrap {% if login_form.errors.username %} error-input {% endif %}">
+							<input class="login-innput" type="text" required name="username" id="username" placeholder="用户名/邮箱" />
+						</div>
+						<div class="password-wrap {% if login_form.errors.password %} error-input {% endif %}">
+							<input class="login-innput" type="password" required name="password" id="password" placeholder="密码" />
+						</div>
+                        {% if login_form.errors %}
+                            <div class="err">
+                                {% for key,err in login_form.errors.items %}
+                                    {{ err }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                        {% if err_msg %}
+                            <div class="err">
+                            {{ err_msg }}
+                            </div>
+                        {% endif %}
+						<p class="forget-wrap">
+							<a href="#">忘记密码？</a>
+						</p>
+						<input class="login-bt" type="submit" value="登    录"/>
+					</form>
+				</div>
+			</div>
+			<i></i>
+		</div>
+		
+		<!-- 底部 -->
+        {% include 'footer_tp.html' %}
+	</body>
+</html>

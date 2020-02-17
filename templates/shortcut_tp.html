@@ -1,0 +1,39 @@
+{# 顶部通栏#}
+<div id="shortcut">
+    <div class="content">
+        <ul class="fl">
+            <li class="welcome hide">欢迎来到全视眼镜商城!</li>
+            {% if request.user.is_authenticated %}
+                <li class="user-name mr-10">
+                    欢迎
+                    <img src="/static/img/atom.png">
+                    <a href="user-detail.html" style="color: red;">请叫我阿童木 </a>
+                </li>
+                <li class="quit">
+                    <a href="/logout/" style="color: black;">退出</a>
+                </li>
+            {% else %}
+                <li class="login ml-20">
+                    <a href="/login/">登录</a>
+                </li>
+                <li class="register">
+                    [<a href="/register/">免费注册</a>]
+                </li>
+            {% endif %}
+
+
+        </ul>
+        <ul class="fr">
+            <li class="order help">
+                <a href="user-order.html">我的订单</a>
+            </li>
+            <li class="car mr-10 ml-10">
+                <!-- <img src="img/car.png" > -->
+                <a href="#">购物车</a>
+            </li>
+            <li class="help">
+                <a href="#">帮助中心</a>
+            </li>
+        </ul>
+    </div>
+</div>

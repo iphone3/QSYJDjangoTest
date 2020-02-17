@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>全视眼镜商城</title>
+		<!-- 样式重置 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+
+		<!-- 基础样式 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+
+		<!--swiper-->
+		<link rel="stylesheet" type="text/css" href="/static/css/swiper.min.css" />
+
+		<!-- 主页样式 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+	</head>
+
+	<body>
+		<!-- 顶部 -->
+        {% include "shortcut_tp.html" %}
+
+		<!-- 头部 -->
+		<div id="header">
+			<div class="content">
+				<div class="nav-t">
+					<div class="logo fl">
+						<a href="index.html"><img src="/static/img/logo-big.png"></a>
+						<b>QSYJ</b>
+					</div>
+					<div class="search">
+						<div class="s-input fl">
+							<input type="text" name="search" id="search" placeholder="彩瞳" />
+							<ul class="histery">
+								<li>
+									<i>givre美瞳</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>隐形眼镜</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>隐形眼镜盒</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>护理液</i>
+									<b>删除</b>
+								</li>
+								<li>全部删除</li>
+							</ul>
+						</div>
+						<div class="s-bt fl">搜索</div>
+					</div>
+					<div class="car fr">
+						<div class="car-bt">
+							购物车
+							<i>3</i> 件
+						</div>
+						<div class="car-list">
+							<div class="car-item">
+								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="car-item">
+								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="car-item">
+								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="shopping">
+								<div class="num fl">共3件商品</div>
+								<div class="shopping-bt fr">去购物车</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="nav-b">
+					<div class="navbar-item fl active">
+						<a href="index.html">首页</a>
+					</div>
+					<div class="navbar-item fl">
+						<a href="contact-lens.html">彩瞳</a>
+					</div>
+					<div class="navbar-item fl">
+						<a href="nurse-goods.html">护理用品</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 主体内容 -->
+		<div id="qs-container">
+			<div class="fs">
+				<!--侧边栏-->
+				<div class="sidebar-col fl">
+					<div class="side-item">透明隐形眼镜 </div>
+					<div class="side-item">彩色隐形眼镜 </div>
+					<div class="side-item">近视眼镜 </div>
+					<div class="side-item">太阳眼镜 </div>
+					<div class="side-item">功能眼镜 </div>
+					<div class="side-item">护理用品 </div>
+				</div>
+
+				<!--轮播图-->
+				<div class="banner-col fl">
+					<div class="swiper-container fs-swiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="/static/img/2019banner1.jpg" /></div>
+							<div class="swiper-slide"><img src="/static/img/2019banner2.jpg" /></div>
+							<div class="swiper-slide"><img src="/static/img/2019banner3.jpg" /></div>
+							<div class="swiper-slide"><img src="/static/img/2019banner4.jpg" /></div>
+						</div>
+					</div>
+				</div>
+
+				<!--用户信息-->
+				<div class="user-col fl">
+					<div class="m-user">
+						<img src="/static/img/atom.png" />
+						<p>Hi~欢迎来到全视!</p>
+						<div class="bt-bar">
+							<div class="bt login fl"><a href="login.html">登录</a></div>
+							<div class="bt register fr"><a href="register.html">注册</a></div>
+						</div>
+					</div>
+					<div class="sale">
+						<div class="sale-title">
+							<h3 class="fl">促销活动</h3>
+							<a class="fr" href="#">更多></a>
+						</div>
+						<div class="sale-item">
+							<b>热门</b>
+							<p>你开学，我放价 >></p>
+						</div>
+						<div class="sale-item">
+							<b>HOT</b>
+							<p>会呼吸的眼镜 >></p>
+						</div>
+						<div class="sale-item">
+							<b>HOT</b>
+							<p>低价好货量贩团 >></p>
+						</div>
+						<div class="sale-item">
+							<b>HOT</b>
+							<p>你开学，我放价 >></p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--秒杀专区-->
+			<div class="spike-zone clearfix">
+				<div class="spike-time fl">
+					<h3>秒杀专区</h3>
+					<img src="/static/img/spike-zone.png" alt="" />
+					<p>本场距离结束还剩</p>
+					<div class="time-bar">
+						<b class="hour">00</b>
+						<b class="minute">00</b>
+						<b class="second">00</b>
+					</div>
+				</div>
+				<div class="spike-goods fl">
+					<div class="goods-item">
+						<div class="img">
+							<img src="/static/img/OJO.png" alt="" />
+							<b></b>
+						</div>
+						<p class="name">
+							欧杰欧OJO 男女同款纯钛圆...
+						</p>
+						<div class="price-bar">
+							<p class="rebate">￥320</p>
+							<p class="price">￥560</p>
+						</div>
+					</div>
+					<div class="goods-item">
+						<div class="img">
+							<img src="/static/img/OJO.png" alt="" />
+							<b></b>
+						</div>
+						<p class="name">
+							欧杰欧OJO 男女同款纯钛圆...
+						</p>
+						<div class="price-bar">
+							<p class="rebate">￥320</p>
+							<p class="price">￥560</p>
+						</div>
+					</div>
+					<div class="goods-item">
+						<div class="img">
+							<img src="/static/img/OJO.png" alt="" />
+							<b></b>
+						</div>
+						<p class="name">
+							欧杰欧OJO 男女同款纯钛圆...
+						</p>
+						<div class="price-bar">
+							<p class="rebate">￥320</p>
+							<p class="price">￥560</p>
+						</div>
+					</div>
+					<div class="goods-item">
+						<div class="img">
+							<img src="/static/img/OJO.png" alt="" />
+							<b></b>
+						</div>
+						<p class="name">
+							欧杰欧OJO 男女同款纯钛圆...
+						</p>
+						<div class="price-bar">
+							<p class="rebate">￥320</p>
+							<p class="price">￥560</p>
+						</div>
+					</div>
+				</div>
+				<div class="spike-swiper fl">
+					<div class="swiper-container spike-swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide"><img src="/static/img/spike3.jpg" /></div>
+							<div class="swiper-slide"><img src="/static/img/spike1.jpg" /></div>
+							<div class="swiper-slide"><img src="/static/img/spike3.jpg" /></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 特色专区 -->
+			<div class="feature-zone clearfix">
+				<div class="feature-c1 feature-item">
+					<div class="box-title">
+						<b class="name">排行榜</b>
+						<i class="icon"> </i>
+						<p class="desc">专属你的购物指南</p>
+					</div>
+					<div class="box-page">
+						<b data-i='0' class="active">隐形眼镜</b>
+						<b data-i='1'>透明隐形</b>
+						<b data-i='2'>框架</b>
+						<b data-i='3'>太阳镜</b>
+						<b data-i='4'>功能眼镜</b>
+					</div>
+					<div class="box-content">
+						<div class="page-ct1 page-ct">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img3.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<div class="page-ct2 page-ct">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												透明隐形1
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												透明隐形2
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												透明隐形3
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<div class="page-ct3 page-ct">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												框架1
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												框架2
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												框架3
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<div class="page-ct4 page-ct">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												太阳镜1
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												太阳镜2
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												太阳镜3
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<div class="page-ct5 page-ct">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+									<div class="swiper-slide">
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #E51C23;">1</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img2.jpg" />
+											<h3 class="fl" style="color: #ED713D;">2</h3>
+											<p class="fl">
+												库博Proclear宝睛润日抛隐形眼镜10片装
+											</p>
+										</div>
+										<div class="slide-item">
+											<img class="fl" src="/static/img/img1.jpg" />
+											<h3 class="fl" style="color: #FEB185;">3</h3>
+											<p class="fl">
+												GIVRE绮芙莉月抛彩色隐形眼镜6片装-静谧萃黑
+											</p>
+										</div>
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="feature-c2 feature-item">
+					<div class="box-title">
+						<b class="name">会买专辑</b>
+						<i class="icon"> </i>
+						<p class="desc">甄选优质好物</p>
+					</div>
+					<div class="box-content">
+						<div class="swiper-container spike-swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<img src="/static/img/img4.png" />
+									<h3>你会freestyle吗？戴上墨镜尬一段</h3>
+									<p>墨镜对于型男们不仅是耍帅的利器，而且还能躲避光对眼睛的伤害，即使颜值不高的男生，也能轻松彰显帅气。</p>
+								</div>
+								<div class="swiper-slide">
+									<img src="/static/img/img4.png" />
+									<h3>你会freestyle吗？戴上墨镜尬一段</h3>
+									<p>墨镜对于型男们不仅是耍帅的利器，而且还能躲避光对眼睛的伤害，即使颜值不高的男生，也能轻松彰显帅气。</p>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+				<div class="feature-c3 feature-item">
+					<div class="box-title">
+						<b class="name">领劵专辑</b>
+						<i class="icon"> </i>
+						<p class="desc">前往领劵中心</p>
+					</div>
+					<div class="box-content">
+						<div class="swiper-container spike-swiper-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide">
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+								</div>
+								<div class="swiper-slide">
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+									<div class="coupon-item">
+										<div class="img fl">
+											<img src="/static/img/icon-c.png" >
+											<b></b>
+										</div>
+										<div class="desc fl">
+											<p class="price">
+												<i>￥</i>5
+											</p>
+											<p class="ot1">
+												满105元可用
+											</p>
+											<p class="ot2">
+												全品类通用劵(除特殊商...
+											</p>
+										</div>
+										<div class="more fr">
+											更多精选好劵
+										</div>
+										<b class="radius-t radius"></b>
+										<b class="radius-b radius"></b>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<!-- 眼镜框架 -->
+			<div class="goods-zone">
+				<div class="goods-hd">
+					-- 眼镜框架 --
+				</div>
+				<div class="goods-ct clearfix">
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+					<a href="goods-detail.html" class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img5.png" >
+						</div>
+						<div class="gd-desc">
+							夏天眼镜圆框平光镜文艺复古潮
+							时尚 银色款
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥388</b>
+							<i>销量:200</i>
+						</div>
+					</a>
+				</div>
+			</div>
+			
+			<!-- 太阳眼镜 -->
+			<div class="goods-zone">
+				<div class="goods-hd">
+					-- 太阳眼镜 --
+				</div>
+				<div class="goods-ct clearfix">
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img6.png" >
+						</div>
+						<div class="gd-desc">
+							太阳镜 男款偏光驾驶墨镜男士
+							偏光眼镜
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥488</b>
+							<i>销量:311</i>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+			<!-- 镜片 -->
+			<div class="goods-zone">
+				<div class="goods-hd">
+					-- 镜片 --
+				</div>
+				<div class="goods-ct clearfix">
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+					<div class="gd-item">
+						<div class="gd-img">
+							<img src="/static/img/img7.png" >
+						</div>
+						<div class="gd-desc">
+							明月(MingYue)镜片 PMC超亮系
+							列非球面1.71
+						</div>
+						<div class="gd-oth clearfix">
+							<b>￥988</b>
+							<i>销量:681</i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 侧边导航栏 -->
+		<div id="elevator">
+			<div class="el-item">
+				<img src="/static/img/icon1.png" >
+				<i></i>
+			</div>
+			<div class="el-item">
+				<img src="/static/img/icon2.png" >
+				<i></i>
+				<b>3</b>
+			</div>
+			<div class="el-item">
+				<img src="/static/img/icon3.png" >
+				<i></i>
+			</div>
+			<div class="el-item">
+				<img src="/static/img/icon4.png" >
+				<i></i>
+			</div>
+		</div>
+
+		<!-- 底部 -->
+		{% include 'footer_tp.html' %}
+	</body>
+
+	<!-- JQ -->
+	<script src="/static/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!--swiper-->
+	<script src="/static/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- 主页内容 -->
+	<script src="/static/js/index.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="/static/js/base.js" type="text/javascript" charset="utf-8"></script>
+</html>

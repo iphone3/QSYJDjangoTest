@@ -1,0 +1,143 @@
+body{
+	position: relative;
+	margin: 0;
+	padding: 0;
+}
+
+#addr-container{
+	width: 1200px;
+	/* height: 400px; */
+	margin: 10px auto;
+	background: white;
+}
+#addr-container > .addr-wrapper{
+	padding: 10px;
+	text-align: left;
+}
+#addr-container > .addr-wrapper > .addr-bar{
+	
+}
+#addr-container > .addr-wrapper > .addr-bar > i{
+	display: inline-block;
+	background: #F5FBEF;
+	width: 150px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #BBBBBB;
+	text-align: center;
+	font-weight: 700;
+	margin-right: 15px;
+}
+#addr-container > .addr-wrapper > .addr-bar > b{
+	color: #666666;
+}
+
+#addr-container > .addr-wrapper > .addr-item{
+	margin: 10px 0;
+	border: 1px solid #BBBBBB;
+	color: #666666;
+}
+#addr-container > .addr-wrapper > .addr-item > .title{
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	border-bottom: 1px dashed #BBBBBB;
+}
+#addr-container > .addr-wrapper > .addr-item > .title > i{
+	font-size: 18px;
+	margin-right: 10px;
+	float: left;
+}
+#addr-container > .addr-wrapper > .addr-item > .title > b{
+	float: left;
+	width:70px;
+	height: 20px;
+	line-height: 20px;
+	background: #FFAA45;
+	color: white;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 12px;
+	margin: 10px 0;
+}
+#addr-container > .addr-wrapper > .addr-item > .title > strong{
+	float: right;
+	font-size: 18px;
+	font-weight: 700;
+	color: #666666;
+}
+
+#addr-container > .addr-wrapper > .addr-item > .content{
+	padding: 10px;
+	font-size: 14px;
+	color: #666666;
+	line-height: 28px;
+	position: relative;
+}
+#addr-container > .addr-wrapper > .addr-item > .content > i{
+	color: #005EA7;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+#addr-container > .addr-wrapper > .addr-item > .content > i.default{
+	right: 60px;
+}
+
+
+#add-cover{
+	background: rgba(187,187,187,0.4);
+	position: fixed;
+	left: 0;
+	top: 0;
+}
+#add-cover > .cover-ct{
+	width: 420px;
+	height: 430px;
+	background: white;
+	position: absolute;
+}
+#add-cover > .cover-ct > .title{
+	background: #EEEEEE;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 10px;
+}
+#add-cover > .cover-ct > .title > h3{
+	font-size: 14px;
+	font-weight: 700;
+	float: left;
+}
+#add-cover > .cover-ct > .title > b{
+	font-weight: 700;
+	float: right;
+	font-size: 18px;
+}
+
+#add-cover > .cover-ct > .detail{
+	padding: 20px;
+	text-align: left;
+}
+#add-cover > .cover-ct > .detail > p{
+	margin-bottom: 8px;
+}
+#add-cover > .cover-ct > .detail > p > i{
+	color: red;
+	margin-right: 5px;
+}
+#add-cover > .cover-ct > .detail > input{
+	width: 270px;
+	height: 25px;
+	margin-bottom: 15px;
+}
+#add-cover > .cover-ct > .detail > select{
+	margin-bottom: 15px;
+}
+#add-cover > .cover-ct > .detail > .save-bt{
+	width: 140px;
+	height: 30px;
+	background: #EEEEEE;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+}

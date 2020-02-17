@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全视眼镜商城 | 注册</title>
+		<!-- 样式重置 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+		<!-- 基础样式 -->
+		<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/register.css"/>
+	</head>
+	<body>
+		<!-- 头部 -->
+        {% include "header_tp.html" with title='欢迎注册' is_show=True %}
+			
+		<!-- 主体内容 -->
+		<div id="rg-container">
+			<div class="register-wrap">
+				<form action="#" method="post">
+					<div class="name-wrap">
+						<label for="name">昵称</label><input type="text" name="name" id="name" placeholder="昵称"/>
+					</div>
+					<div class="email-wrap">
+						<label for="email">邮箱</label><input type="email" name="email" id="email" placeholder="建议常用邮箱"/>
+					</div>
+					<div class="password-wrap">
+						<label for="password">密码</label><input type="password" name="password" id="password" placeholder="6-12位数密码"/>
+					</div>
+					<div class="check-wrap">
+						<label for="check">验证码</label><input type="text" name="check" id="check" placeholder="请输入验证码"/>
+					</div>
+					
+					<input class="register-bt" type="submit" value="注  册"/>
+				</form>
+			</div>
+			<i></i>
+		</div>
+		
+		<!-- 底部 -->
+		{% include 'footer_tp.html' %}
+	</body>
+</html>
