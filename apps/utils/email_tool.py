@@ -5,12 +5,12 @@ from random import Random
 from django.core.mail import EmailMessage
 from django.template import loader
 
-from QSYJDjangoTest.settings import EMAIL_FROM, ACTIVE_LINK
+from QSYJDjangoTest.settings import EMAIL_FROM, BASE_URL
 from django.core.cache import cache
 
 
 # 邮箱验证 [激活、修改密码]
-def send_email(username ,email, send_type=0):
+def send_email(username,email, send_type=0):
     # 使用缓存的方式，以便于超时处理 [也可以配置上redis或直接django底层缓存api]
     # set(key, value, timeout)  >> set(code, email, timeout)
 
@@ -22,13 +22,18 @@ def send_email(username ,email, send_type=0):
     timeout = 0
 
     if send_type == 0:  # 注册后的激活操作
-        code = generate_active_code()
-        timeout = 60 * 1   # 激活操作，半小时生效
+        code = generate_hash_code()
+        timeout = 60 * 30   # 激活操作，半小时生效
         email_title = '全视眼镜商城——激活操作'
-        active_url = '{0}/active/{1}'.format(ACTIVE_LINK,code)
+        active_url = '{0}/active/{1}'.format(BASE_URL,code)
         email_body = loader.render_to_string('active_email.html', {'username':username, 'active_url':active_url})
-    elif send_type == 1:    # 修改密码操作
-        pass
+    elif send_type == 1:    # 忘记密码
+        code = generate_hash_code()
+        timeout = 60 * 1
+        email_title = '全视眼镜商城——密码重置'
+        reset_url = '{0}/reset/{1}'.format(BASE_URL, code)
+        email_body = loader.render_to_string('reset_email.html', {'username': username, 'active_url': reset_url})
+
 
     # 发送邮箱前，需要配置好发送者
     msg = EmailMessage(email_title, email_body, EMAIL_FROM, [email])
@@ -41,7 +46,7 @@ def send_email(username ,email, send_type=0):
 
 
 # 生成激活码
-def generate_active_code():
+def generate_hash_code():
     hash = hashlib.sha512()
     sha_str = str(uuid.uuid4()) + str(int(time.time()))
     hash.update(sha_str.encode('utf-8'))

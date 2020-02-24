@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全视眼镜商城 | 重置密码</title>
+		<!-- 样式重置 -->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}" />
+		<!-- 基础样式 -->
+		<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}"/>
+	</head>
+	<body>
+		<!-- 头部 -->
+		{% include "header_tp.html" with title='重置密码' is_show=True %}
+			
+		<!-- 主体内容 -->
+		<div id="rg-container">
+			<div class="register-wrap">
+				<form action="{% url 'reset_sub' %}" method="post">
+                    {% csrf_token %}
+					<p class="mb-20" style="font-size: 20px;">
+						已确认通过，请设置新的密码!
+					</p>
+					<div class="password-wrap">
+						<label for="password1">密码</label><input type="password" required name="password1" id="password1" placeholder="6-12位数密码"/>
+					</div>
+
+{#                    隐藏的#}
+                    <input type="hidden" name="email" value="{{ email }}">
+
+					<div class="password-wrap">
+						<label for="password2">确认密码</label><input type="password" required name="password2" id="password2" placeholder="6-12位数密码"/>
+					</div>
+                    {% if err_msg %}
+                        <div class="err">
+                            {{ err_msg }}
+                        </div>
+                    {% endif %}
+					
+					<input class="register-bt" type="submit" value="提  交"/>
+				</form>
+			</div>
+			<i></i>
+		</div>
+		
+		<!-- 底部 -->
+		{% include 'footer_tp.html' %}
+	</body>
+</html>

@@ -18,7 +18,7 @@ from django.urls import include
 
 import xadmin
 from django.views.generic import TemplateView
-from users.views import LoginView, LogoutView, RegisterView, ActiveView
+from users.views import LoginView, LogoutView, RegisterView, ActiveView, ForgetView,ResetView
 
 urlpatterns = [
     url(r'^admin/', xadmin.site.urls),
@@ -28,4 +28,7 @@ urlpatterns = [
     url(r'^logout/$', LogoutView.as_view(), name='logout'),   # 退出
     url(r'^captcha/', include('captcha.urls')),    # 验证码 【注意该位置，不能有$结尾】
     url(r'^active/(?P<active_code>\w+)/$', ActiveView.as_view(), name='active'),    # 用户激活
+    url(r'^forget/$', ForgetView.as_view(), name='forget'), # 找回密码
+    url(r'^reset/$', ResetView.as_view(), name='reset_sub'), # 重置密码
+    url(r'^reset/(?P<reset_code>\w+)/$', ResetView.as_view(), name='reset'), # 重置密码
 ]

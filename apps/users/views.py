@@ -6,7 +6,7 @@ from django.shortcuts import render
 from users.models import UserProfile
 from django.views.generic.base import View
 from utils.email_tool import send_email
-from .forms import LoginForm,RegisterForm
+from .forms import LoginForm, RegisterForm, ForgetForm, ResetForm
 from django.contrib.auth.hashers import make_password
 
 # Create your views here.
@@ -127,5 +127,51 @@ class ActiveView(View):
             user.save()
             return render(request, 'login.html', {'is_prompt': '激活成功，请登录!'})
         else:
-            return render(request, 'login.html', {'is_prompt': '已超，请重新登录!'})
+            return render(request, 'login.html', {'is_prompt': '已超时，请重新登录，再次发送邮件!'})
 
+# 忘记密码
+class ForgetView(View):
+    def get(self, request):
+        forget_form = ForgetForm()
+        return render(request, 'forget.html', {'forget_form':forget_form})
+
+    def post(self, request):
+        forget_form = ForgetForm(request.POST)
+        if forget_form.is_valid():
+            email = request.POST.get('email')
+            user = UserProfile.objects.get(email=email)
+            send_email(user.username ,email, send_type=1)
+            return render(request, 'login.html', {'is_prompt':'重置密码邮件已发出，请注意查收!'})
+        else:
+            return render(request, 'forget.html', {'forget_form':forget_form})
+
+
+# 重置密码
+class ResetView(View):
+    def get(self, request, reset_code):
+        # 缓存有超时
+        email = cache.get(reset_code)
+        if email:
+            # 得传入email，后续再重置密码时，带入才知道是哪个用户重置密码
+            return render(request, 'reset.html', {'email':email})
+        else:
+            forget_form = ForgetForm()
+            return render(request, 'forget.html', {'is_prompt': '重置链接已超时，请重新提交!', 'forget_form':forget_form})
+
+    def post(self, request):
+        reset_form = ResetForm(request.POST)
+        if reset_form.is_valid():
+            pwd1 = request.POST.get('password1', '')
+            pwd2 = request.POST.get('password2', '')
+            email = request.POST.get('email')
+            if pwd1 != pwd2:
+                return render(request, 'reset.html', {'email':email, 'err_msg':'两次密码输入不一致'})
+
+            user = UserProfile.objects.get(email=email)
+            user.password = make_password(pwd1)
+            user.save()
+
+            return render(request, 'login.html', {'is_prompt': '重置密码成功!'})
+        else:
+            email = request.POST.get('email')
+            return render(request, 'reset.html', {'email': email, 'err_msg': '密码长度错误，注意是6~12位'})

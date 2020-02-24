@@ -61,6 +61,27 @@
 	padding-left: 15px;
 	font-size: 15px;
 }
+#lg-container > .login-wrap > .login-form>  form > div.check-wrap{
+	width: 300px;
+	margin: 10px auto 20px;
+	height: 40px;
+	border: 1px solid gray;
+	/*padding-left: 40px;*/
+	background: url(../img/icon-password.png) no-repeat ;
+	background-size: 40px 40px;
+}
+#lg-container > .login-wrap > .login-form>  form > div.check-wrap > input{
+	width: 128px;
+	height: 38px;
+	border: none;
+	border-left: 1px solid gray;
+	/*padding-left: 15px;*/
+	font-size: 15px;
+}
+#lg-container > .login-wrap > .login-form>  form > div > img{
+	float: right;
+	height: 40px;
+}
 #lg-container > .login-wrap > .login-form > form > .err{
 	height: 40px;
 	width: 302px;

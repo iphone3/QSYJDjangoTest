@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
-      <change afterPath="$PROJECT_DIR$/apps/users/migrations/0003_delete_emailverifyrecord.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/active_email.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/forget.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reset.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/reset_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/adminx.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/utils/email_tool.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/email_tool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/active_email.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/active_email.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -98,9 +101,9 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -232,12 +235,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@19d0c779" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -267,7 +265,8 @@
       <workItem from="1582116927974" duration="3000" />
       <workItem from="1582116984168" duration="135000" />
       <workItem from="1582117141082" duration="14000" />
-      <workItem from="1582117167336" duration="24803000" />
+      <workItem from="1582117167336" duration="26401000" />
+      <workItem from="1582538163937" duration="8154000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
