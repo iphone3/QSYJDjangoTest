@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',   # xadmin
     'crispy_forms', # xadmin
+    'captcha'
 ]
 
 
@@ -67,7 +68,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'templates'
+            os.path.join(BASE_DIR, 'templates')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -146,3 +147,11 @@ STATICFILES_DIRS = [
 AUTHENTICATION_BACKENDS = (
     'users.views.CustomBackend',
 )
+
+# 邮箱发送者  【相关信息查看邮箱服务器的POP3/SMTP/IMAP】
+EMAIL_HOST = 'smtp.163.com' # 使用SMTP
+EMAIL_PORT = 25
+EMAIL_HOST_USER = '18924235915@163.com'
+EMAIL_HOST_PASSWORD = 'zyz123'  # 客户端授权密码
+EMAIL_USE_TLS = False
+EMAIL_FROM = '18924235915@163.com'  # 指明发件人

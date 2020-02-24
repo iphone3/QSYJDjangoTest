@@ -18,13 +18,13 @@
 		<div id="lg-container">
 			<div class="login-wrap">
 				<div class="login-form">
-					<form action="/login/" method="post">
+					<form action="{% url 'login' %}" method="post">
                         {% csrf_token %}
 						<div class="user-wrap {% if login_form.errors.username %} error-input {% endif %}">
-							<input class="login-innput" type="text" required name="username" id="username" placeholder="用户名/邮箱" />
+							<input class="login-innput" type="text" required value="{{ login_form.username.value }}" name="username" id="username" placeholder="用户名/邮箱" />
 						</div>
 						<div class="password-wrap {% if login_form.errors.password %} error-input {% endif %}">
-							<input class="login-innput" type="password" required name="password" id="password" placeholder="密码" />
+							<input class="login-innput" type="password" required value="{{ login_form.password.value }}" name="password" id="password" placeholder="密码" />
 						</div>
                         {% if login_form.errors %}
                             <div class="err">

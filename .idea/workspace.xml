@@ -1,153 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/addr-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/car-list.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/check-order.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/contact-lens.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/goods-detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/nurse-goods.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/order-appraise.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/swiper.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/user-detail.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/user-order.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/image/atom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/2019banner1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/2019banner2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/2019banner3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/2019banner4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/OJO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/arrow-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/arrow-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/aside-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/assess-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/assess-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/assess-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/atom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/attrs-c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/car-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/car.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-v1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-v2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-v3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/contact-v4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-17.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-19.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-20.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-21.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-22.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-b2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-b4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-b5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-s1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-s2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-s3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-s4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/detail-s5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/head-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/hes-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-c.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-g.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-l.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-password.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-r.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon-user.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/icon_clubs.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img-bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/img7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/logo-big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/nurse-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/nurse-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/nurse-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/nurse-b1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/spike-zone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/spike1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/spike3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/star-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/star-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/stark2-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/stark2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/starky.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/stars2-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/stars2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/starsy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/addr-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/alert.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/car-list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/contact-lens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/goods-detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jqZoome.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/nurse-goods.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/order-appraise.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/startScore.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/swiper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/user-detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/user-order.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/car-list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/footer_tp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/header_tp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/shortcut_tp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/QSYJDjangoTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/QSYJDjangoTest.iml" afterDir="false" />
+    <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
+      <change afterPath="$PROJECT_DIR$/apps/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/utils/email_tool.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ab9bdd5-adce-4824-8f59-5d17a69c3d32.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/9ab9bdd5-adce-4824-8f59-5d17a69c3d32.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9ab9bdd5-adce-4824-8f59-5d17a69c3d32.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/css/xadmin.form.css" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/css/xadmin.form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.formset.js" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/js/xadmin.plugin.formset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/js/xadmin.responsive.js" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/js/xadmin.responsive.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.el.js" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/static/xadmin/vendor/bootstrap-datepicker/js/locales/bootstrap-datepicker.el.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/model_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/model_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/model_history.html" beforeDir="false" afterPath="$PROJECT_DIR$/extra_apps/xadmin/templates/xadmin/views/model_history.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shortcut_tp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shortcut_tp.html" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,22 +26,34 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="qsyjTest@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - qsyjTest@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - qsyjTest@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - qsyjTest@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="qsyjTest: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -213,14 +94,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -233,7 +116,19 @@
       <recent name="$PROJECT_DIR$/apps" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Django server.QSYJDjangoTest">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -254,17 +149,24 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+    <configuration name="Test: templates" type="DjangoTestsConfigurationType" temporary="true">
       <module name="QSYJDjangoTest" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
+      <option name="TARGET" value="templates" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
       <method v="2" />
     </configuration>
     <configuration name="QSYJDjangoTest" type="Python.DjangoServer" factoryName="Django server">
@@ -291,6 +193,29 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -300,6 +225,26 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Django tests.Test: templates" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@19d0c779" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -317,7 +262,15 @@
       <workItem from="1581907705644" duration="96000" />
       <workItem from="1581907816130" duration="351000" />
       <workItem from="1581908266780" duration="388000" />
-      <workItem from="1581908714941" duration="267000" />
+      <workItem from="1581908714941" duration="4581000" />
+      <workItem from="1582082893345" duration="95000" />
+      <workItem from="1582083083076" duration="165000" />
+      <workItem from="1582083301539" duration="82000" />
+      <workItem from="1582116640465" duration="150000" />
+      <workItem from="1582116927974" duration="3000" />
+      <workItem from="1582116984168" duration="135000" />
+      <workItem from="1582117141082" duration="14000" />
+      <workItem from="1582117167336" duration="17604000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
@@ -340,17 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1581581567685</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="登录操作">
+      <created>1581909198241</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581909198241</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="TodoView" selected-index="4">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -371,32 +322,85 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="xadmin后台管理配置完成" />
     <MESSAGE value="xadmin配置完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="xadmin配置完成" />
+    <MESSAGE value="登录操作" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录操作" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="170" key="GridCell.Tab.0.bottom" timestamp="1581909158182">
+    <state x="320" y="144" key="#HTTP_Proxy" timestamp="1582079069057">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="170" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1581909158182" />
-    <state width="1398" height="170" key="GridCell.Tab.0.center" timestamp="1581909158182">
+    <state x="320" y="144" key="#HTTP_Proxy/0.23.1440.877@0.23.1440.877" timestamp="1582079069057" />
+    <state x="320" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582079971222">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="170" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1581909158182" />
-    <state width="1398" height="170" key="GridCell.Tab.0.left" timestamp="1581909158180">
+    <state x="320" y="128" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1582079971222" />
+    <state x="309" y="66" key="CommitChangelistDialog2" timestamp="1581909197716">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="170" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1581909158180" />
-    <state width="1398" height="170" key="GridCell.Tab.0.right" timestamp="1581909158182">
+    <state x="309" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1581909197716" />
+    <state width="1398" height="170" key="GridCell.Tab.0.bottom" timestamp="1582075739380">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="170" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1581909158182" />
-    <state x="221" y="100" key="SettingsEditor" timestamp="1581909032272">
+    <state width="1398" height="170" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1582075739380" />
+    <state width="1398" height="170" key="GridCell.Tab.0.center" timestamp="1582075739378">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1581909032272" />
-    <state x="374" y="296" key="com.intellij.ide.util.TipDialog" timestamp="1581908883988">
+    <state width="1398" height="170" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1582075739378" />
+    <state width="1398" height="170" key="GridCell.Tab.0.left" timestamp="1582075739378">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
+    <state width="1398" height="170" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1582075739378" />
+    <state width="1398" height="170" key="GridCell.Tab.0.right" timestamp="1582075739379">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="170" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1582075739379" />
+    <state width="1398" height="170" key="GridCell.Tab.1.bottom" timestamp="1582075739382">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="170" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1582075739382" />
+    <state width="1398" height="170" key="GridCell.Tab.1.center" timestamp="1582075739382">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="170" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1582075739382" />
+    <state width="1398" height="170" key="GridCell.Tab.1.left" timestamp="1582075739381">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="170" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1582075739381" />
+    <state width="1398" height="170" key="GridCell.Tab.1.right" timestamp="1582075739382">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="170" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1582075739382" />
+    <state x="221" y="100" key="SettingsEditor" timestamp="1582078310968">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="221" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1582078310968" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1581909238724">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1581909238724" />
+    <state x="363" y="296" key="com.intellij.ide.util.TipDialog" timestamp="1582083378576">
+      <screen x="0" y="23" width="1399" height="877" />
+    </state>
+    <state x="363" y="296" key="com.intellij.ide.util.TipDialog/0.23.1398.877@0.23.1398.877" timestamp="1582082901147" />
+    <state x="363" y="296" key="com.intellij.ide.util.TipDialog/0.23.1399.877@0.23.1399.877" timestamp="1582083378576" />
     <state x="374" y="296" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1581908883988" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1582078793232">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1582078793232" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/QSYJDjangoTest$Test__templates.coverage" NAME="Test: templates Coverage Results" MODIFIED="1582453201685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

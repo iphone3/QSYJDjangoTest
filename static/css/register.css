@@ -11,12 +11,12 @@
 }
 
 #rg-container{
-	height: 525px;
+	/* height: 525px; */
 	text-align: center;
 }
 #rg-container > .register-wrap{
 	width: 380px;
-	height: 380px;
+	/* height: 450px; */
 	display: inline-block;
 	border: 1px solid #BBBBBB;
 	vertical-align: middle;
@@ -24,11 +24,11 @@
 }
 
 #rg-container > .register-wrap > form{
-	padding: 30px;
+	padding: 20px;
 }
 #rg-container > .register-wrap > form > div{
 	border: 1px solid #BBBBBB;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 	height: 40px;
 	line-height: 40px;
 	text-align: left;
@@ -46,6 +46,13 @@
 	font-size: 16px;
 	padding-left: 20px;
 }
+#rg-container > .register-wrap > form > div.check-wrap > input{
+	width: 100px;
+}
+#rg-container > .register-wrap > form > div > img{
+	float: right;
+	height: 40px;
+}
 #rg-container > .register-wrap > form > .register-bt{
 	width: 320px;
 	height: 40px;
@@ -53,6 +60,14 @@
 	background: red;
 	color: white;
 	line-height: 40px;
+}
+#rg-container > .register-wrap > form > .err{
+	height: 30px;
+	width: 340px;
+	text-align: center;
+	line-height: 30px;
+	font-size: 14px;
+	background: goldenrod;
 }
 
 #rg-container > i{

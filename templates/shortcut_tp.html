@@ -10,14 +10,14 @@
                     <a href="user-detail.html" style="color: red;">请叫我阿童木 </a>
                 </li>
                 <li class="quit">
-                    <a href="/logout/" style="color: black;">退出</a>
+                    <a href="{% url 'logout' %}" style="color: black;">退出</a>
                 </li>
             {% else %}
                 <li class="login ml-20">
-                    <a href="/login/">登录</a>
+                    <a href="{% url 'login' %}">登录</a>
                 </li>
                 <li class="register">
-                    [<a href="/register/">免费注册</a>]
+                    [<a href="{% url 'register' %}">免费注册</a>]
                 </li>
             {% endif %}
 

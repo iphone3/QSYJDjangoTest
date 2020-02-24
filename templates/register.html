@@ -16,19 +16,47 @@
 		<!-- 主体内容 -->
 		<div id="rg-container">
 			<div class="register-wrap">
-				<form action="#" method="post">
-					<div class="name-wrap">
-						<label for="name">昵称</label><input type="text" name="name" id="name" placeholder="昵称"/>
+				<form action="{% url 'register' %}" method="post">
+                    {% csrf_token %}
+                    <div class="username-wrap {% if register_form.errors.username %} error-input {% endif %}">
+						<label for="username">用户名</label><input type="text" required value="{{ register_form.username.value }}" name="username" id="username" placeholder="用户名"/>
 					</div>
-					<div class="email-wrap">
-						<label for="email">邮箱</label><input type="email" name="email" id="email" placeholder="建议常用邮箱"/>
+                    {% if username_err %}
+                        <div class="err">
+                            {{ username_err }}
+                        </div>
+                    {% endif %}
+
+					<div class="name-wrap {% if register_form.errors.name %} error-input {% endif %}">
+						<label for="name">昵称</label><input type="text" required value="{{ register_form.name.value }}" name="name" id="name" placeholder="昵称"/>
 					</div>
-					<div class="password-wrap">
-						<label for="password">密码</label><input type="password" name="password" id="password" placeholder="6-12位数密码"/>
+					<div class="email-wrap {% if register_form.errors.email %} error-input {% endif %}">
+						<label for="email">邮箱</label><input type="email" required value="{{ register_form.email.value }}"  name="email" id="email" placeholder="建议常用邮箱"/>
 					</div>
-					<div class="check-wrap">
-						<label for="check">验证码</label><input type="text" name="check" id="check" placeholder="请输入验证码"/>
+                    {% if email_err %}
+                        <div class="err">
+                            {{ email_err }}
+                        </div>
+                    {% endif %}
+
+					<div class="password-wrap {% if register_form.errors.password %} error-input {% endif %}">
+						<label for="password">密码</label><input type="password" required name="password" id="password" placeholder="6-12位数密码"/>
 					</div>
+                    {% if register_form.errors.password %}
+                        <div class="err">
+                            {{ register_form.errors.password }}
+                        </div>
+                    {% endif %}
+
+					<div class="check-wrap {% if register_form.errors.captcha %} error-input {% endif %}">
+						<label for="check">验证码</label>
+					    {{ register_form.captcha }}
+                    </div>
+                    {% if register_form.errors.captcha %}
+                        <div class="err">
+                            {{ register_form.errors.captcha }}
+                        </div>
+                    {% endif %}
 					
 					<input class="register-bt" type="submit" value="注  册"/>
 				</form>
