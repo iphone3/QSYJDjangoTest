@@ -148,6 +148,9 @@ AUTHENTICATION_BACKENDS = (
     'users.views.CustomBackend',
 )
 
+# 激活链接
+ACTIVE_LINK = 'http://127.0.0.1:8005'
+
 # 邮箱发送者  【相关信息查看邮箱服务器的POP3/SMTP/IMAP】
 EMAIL_HOST = 'smtp.163.com' # 使用SMTP
 EMAIL_PORT = 25

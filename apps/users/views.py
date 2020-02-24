@@ -1,10 +1,10 @@
 from django.contrib import auth
 from django.contrib.auth.backends import ModelBackend
+from django.core.cache import cache
 from django.db.models import Q
 from django.shortcuts import render
 from users.models import UserProfile
 from django.views.generic.base import View
-
 from utils.email_tool import send_email
 from .forms import LoginForm,RegisterForm
 from django.contrib.auth.hashers import make_password
@@ -40,8 +40,13 @@ class LoginView(View):
             # 用户验证
             user = auth.authenticate(request=request, username=user_name, password=pass_word)
             if user is not None:
-                auth.login(request, user)  # 登录成功(处理了request，添加登录信息，其实就是cookie/session的封装)
-                return render(request, 'index.html')
+                if user.is_active: # 激活状态
+                    auth.login(request, user)  # 登录成功(处理了request，添加登录信息，其实就是cookie/session的封装)
+                    return render(request, 'index.html')
+                else:
+                    # 如果超时，重新发送
+                    send_email(user.username,user.email)
+                    return render(request, 'login.html', {'err_msg':'用户未激活，请查看邮箱!'})
             else:
                 return render(request, 'login.html', {'err_msg':'用户名或密码错误!'})
         else:   # 验证错误
@@ -96,13 +101,31 @@ class RegisterView(View):
                 user.username = username
                 user.email = email
                 user.nick_name = name
+                user.is_active = False  # 表示该用户未激活状态
                 # 加密处理
                 user.password = make_password(password)
                 user.save()
 
                 # 发送激活链接【默认是没有被激活的】
-                send_email(email)
+                send_email(user.username,email)
 
-                return render(request, 'login.html')
+                # 提示用户，需要激活后登录
+                return render(request, 'login.html', {'is_prompt': '请查看邮箱，激活后登录!'})
+                # return render(request, 'login.html')
         else:
             return render(request, 'register.html', {'register_form':register_form})
+
+
+# 激活
+class ActiveView(View):
+    def get(self, request, active_code):
+        # 缓存有超时
+        email = cache.get(active_code)
+        if email:
+            user = UserProfile.objects.get(email=email)
+            user.is_active = True
+            user.save()
+            return render(request, 'login.html', {'is_prompt': '激活成功，请登录!'})
+        else:
+            return render(request, 'login.html', {'is_prompt': '已超，请重新登录!'})
+

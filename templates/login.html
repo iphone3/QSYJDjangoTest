@@ -51,4 +51,10 @@
 		<!-- 底部 -->
         {% include 'footer_tp.html' %}
 	</body>
+
+    {% if is_prompt %}
+        <script>
+            alert('{{ is_prompt }}')
+        </script>
+    {% endif %}
 </html>

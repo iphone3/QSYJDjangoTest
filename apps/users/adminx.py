@@ -1,5 +1,5 @@
 import xadmin
-from users.models import EmailVerifyRecord, UserProfile
+from users.models import UserProfile
 from xadmin import views
 
 
@@ -18,12 +18,12 @@ class GlobalSettings(object):
 xadmin.site.register(views.CommAdminView, GlobalSettings)
 
 
-class EmailVerifyRecordAdmin(object):
-    # 后台显示字段
-    list_display = ['code', 'email', 'send_type', 'send_time']
-    # 搜索字段
-    search_fields = ['code', 'email', 'send_type']
-    # 字段过滤
-    list_filter = ['email','send_type', 'send_time']
-xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
+# class EmailVerifyRecordAdmin(object):
+#     # 后台显示字段
+#     list_display = ['code', 'email', 'send_type', 'send_time']
+#     # 搜索字段
+#     search_fields = ['code', 'email', 'send_type']
+#     # 字段过滤
+#     list_filter = ['email','send_type', 'send_time']
+# xadmin.site.register(EmailVerifyRecord, EmailVerifyRecordAdmin)
 
