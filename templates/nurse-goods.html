@@ -1,0 +1,135 @@
+{% extends 'base_tp.html' %}
+{% load static %}
+
+{# nurse-goods护理用品 #}
+
+{# 标题#}
+{% block title %}
+    全视眼镜商城 | 护理用品
+{% endblock %}
+
+{# CSS#}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/nurse-goods.css' %}" />
+{% endblock %}
+
+{# JS#}
+{% block custom_js %}
+    <script src="{% static 'js/nurse-goods.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{# 主体内容#}
+{% block container %}
+    <div id="qs-container" class="clearfix">
+			<div class="tail-zone">
+				<a href="index.html">首页</a>
+				&nbsp;
+				&gt;
+				&nbsp;
+				<i>护理用品</i>
+			</div>
+
+			<div class="side-zone fl">
+
+				<h3>热销排行榜</h3>
+				<ul>
+                    {% for item in hot_sells %}
+                        <li class="clearfix">
+                            <div class="num">{{ item.goods_nun }}</div>
+                            <div class="img">
+                                <img src="{{ MEDIA_URL }}{{item.goods_img}}" >
+                            </div>
+                            <div class="detail">
+                                <p>{{item.goods_name}}</p>
+                                <i>￥{{ item.goods_price }}</i>
+                            </div>
+                        </li>
+                    {% endfor %}
+				</ul>
+			</div>
+
+			<div class="main-zone fr">
+				<div class="select-tab clearfix">
+					<div class="tab-item">品牌</div>
+					<div class="tab-item"><a href="#" class="active">全部</a></div>
+					<div class="tab-item"><a href="#">爱尔康</a></div>
+					<div class="tab-item"><a href="#">库博</a></div>
+					<div class="tab-item"><a href="#">海昌</a></div>
+					<div class="tab-item"><a href="#">视康</a></div>
+					<div class="tab-item"><a href="#">蔡司</a></div>
+					<div class="tab-item"><a href="#">美尼康</a></div>
+					<div class="tab-item"><a href="#">其他</a></div>
+				</div>
+				<div class="select-tab clearfix">
+					<div class="tab-item">规格</div>
+					<div class="tab-item"><a href="#">促销装</a></div>
+					<div class="tab-item"><a href="#">大瓶装</a></div>
+					<div class="tab-item"><a href="#">中瓶装</a></div>
+					<div class="tab-item"><a href="#">小瓶装</a></div>
+				</div>
+				<div class="select-tab clearfix">
+					<div class="tab-item">功能</div>
+					<div class="tab-item"><a href="#">护理液</a></div>
+					<div class="tab-item"><a href="#">伴侣盒</a></div>
+					<div class="tab-item"><a href="#">润眼液</a></div>
+					<div class="tab-item"><a href="#">清洗器</a></div>
+					<div class="tab-item"><a href="#">取戴器</a></div>
+					<div class="tab-item"><a href="#">双联盒</a></div>
+				</div>
+				<div class="select-tab clearfix">
+					<div class="tab-item">材质</div>
+					<div class="tab-item"><a href="#">硅胶</a></div>
+					<div class="tab-item"><a href="#">尼龙</a></div>
+					<div class="tab-item"><a href="#">其他</a></div>
+				</div>
+				<div class="select-tab clearfix" style="border-bottom: 1px solid #BBBBBB;">
+					<div class="tab-item">价格</div>
+					<div class="tab-item"><a href="#"> <49 </a></div>
+					<div class="tab-item"><a href="#">50~99</a></div>
+					<div class="tab-item"><a href="#">100~299</a></div>
+				</div>
+
+				<div class="goods-wrap">
+					<div class="goods-zone">
+						<div class="goods-tab">
+							<a href="#" class="active">综合</a>
+							<a href="#">
+								销量
+								<img src="{% static 'img/arrow-down.png' %} " >
+							</a>
+							<a href="#">
+								价格
+								<img src="{% static 'img/arrow-down.png' %}" >
+							</a>
+						</div>
+
+						<div class="goods-ct clearfix">
+                            {% for goods in nurse_goods %}
+                                <div class="goods-item">
+                                    <img src="{{ MEDIA_URL }}{{ goods.goods_img }}" alt="">
+                                    <p class="price">￥ {{ goods.goods_price }}</p>
+                                    <p class="name">{{goods.goods_name}}</p>
+                                    <div class="atar_Show">
+                                      <p tip="{{ goods.goods_tip }}"></p>
+                                    </div>
+                                    <div class="add-cart">
+                                        <b>加入购物车</b>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+						<div class="page-zone">
+							<a href="#" class="back">上一页</a>
+							<a href="#">1</a>
+							<a href="#">2</a>
+							....
+							<a href="#">9</a>
+							<a href="#">10</a>
+							<a href="#" class="next">下一页</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{% endblock %}

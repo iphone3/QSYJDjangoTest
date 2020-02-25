@@ -139,9 +139,12 @@ class ForgetView(View):
         forget_form = ForgetForm(request.POST)
         if forget_form.is_valid():
             email = request.POST.get('email')
-            user = UserProfile.objects.get(email=email)
-            send_email(user.username ,email, send_type=1)
-            return render(request, 'login.html', {'is_prompt':'重置密码邮件已发出，请注意查收!'})
+            user = UserProfile.objects.filter(email=email).first()
+            if user:
+                send_email(user.username ,email, send_type=1)
+                return render(request, 'login.html', {'is_prompt':'重置密码邮件已发出，请注意查收!'})
+            else:
+                return render(request, 'forget.html', {'forget_form': forget_form, 'err_msg':'邮箱不存在，请重新输入'})
         else:
             return render(request, 'forget.html', {'forget_form':forget_form})
 

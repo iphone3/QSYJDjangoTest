@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    {% block head %}
+        <head>
+            <meta charset="utf-8" />
+            <title> {% block title %} 全视眼镜商城 {% endblock %} </title>
+
+            {% block css %}
+                <!-- 样式重置 -->
+                <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}"/>
+                <!-- 基础样式 -->
+                <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}"/>
+                <!--swiper-->
+                <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}" />
+
+                {% block custom_css %}
+
+                {% endblock %}
+            {% endblock %}
+        </head>
+    {% endblock %}
+
+
+    {% block body %}
+	<body>
+		<!-- 顶部 -->
+        {% block shortcut %}
+		    <div id="shortcut">
+			<div class="content">
+				<ul class="fl">
+					<li class="welcome">欢迎来到全视眼镜商城!</li>
+					<li class="login ml-20">
+						<a href="{% url 'login' %}">登录</a>
+					</li>
+					<li class="register">
+						[<a href="{% url 'register' %}">免费注册</a>]
+					</li>
+				</ul>
+				<ul class="fr">
+					<li class="car">
+						<a href="car-list.html">购物车</a>
+					</li>
+					<li class="help ml-20">
+						<a href="#">帮助中心</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+        {% endblock %}
+
+		<!-- 头部 -->
+        {% block header %}
+		    <div id="header">
+			<div class="content">
+				<div class="nav-t">
+					<div class="logo fl">
+						<a href="{% url 'index' %}"><img src="{% static 'img/logo-big.png' %}"></a>
+						<b>QSYJ</b>
+					</div>
+					<div class="search">
+						<div class="s-input fl">
+							<input type="text" name="search" id="search" placeholder="彩瞳" />
+							<ul class="histery">
+								<li>
+									<i>givre美瞳</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>隐形眼镜</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>隐形眼镜盒</i>
+									<b>删除</b>
+								</li>
+								<li>
+									<i>护理液</i>
+									<b>删除</b>
+								</li>
+								<li>全部删除</li>
+							</ul>
+						</div>
+						<div class="s-bt fl">搜索</div>
+					</div>
+					<div class="car fr">
+						<div class="car-bt">
+							购物车
+							<i>3</i>
+							件
+						</div>
+						<div class="car-list">
+							<div class="car-item">
+								<div class="img fl"><img src="../img/hes-1.jpg" ></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="car-item">
+								<div class="img fl"><img src="../img/hes-1.jpg" ></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="car-item">
+								<div class="img fl"><img src="../img/hes-1.jpg" ></div>
+								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
+								<div class="price fr">
+									<p>￥93.00 x 1</p>
+									<b class="del">删除</b>
+								</div>
+
+							</div>
+							<div class="shopping">
+								<div class="num fl">共3件商品</div>
+								<div class="shopping-bt fr">去购物车</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="nav-b">
+					<div class="navbar-item fl {% if nav_at == 'index' %} active {% endif %} ">
+						<a href="{% url 'index' %}">首页</a>
+					</div>
+					<div class="navbar-item fl {% if nav_at == 'contact' %} active {% endif %}">
+						<a href="{% url 'contact' %}">彩瞳</a>
+					</div>
+					<div class="navbar-item fl {% if nav_at == 'nurse' %} active {% endif %}">
+						<a href="{% url 'nurse' %}">护理用品</a>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endblock %}
+
+		<!-- 主体内容 -->
+        {% block container %}
+
+        {% endblock %}
+
+		<!-- 底部 -->
+        {% block footer %}
+		    <div id="footer">
+			<p>© 全视眼镜商城 版权所有，并保留所有权利。</p>
+			<p>站点维护: zyz</p>
+		</div>
+        {% endblock %}
+    </body>
+    {% endblock %}
+
+
+    {% block js %}
+        <!-- JQ -->
+        <script src="{% static 'js/jquery.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <!--swiper-->
+        <script src="{% static 'js/swiper.min.js' %}" type="text/javascript" charset="utf-8"></script>
+        <script src="{% static 'js/base.js' %}" type="text/javascript" charset="utf-8"></script>
+
+        {% block custom_js %}
+
+        {% endblock %}
+    {% endblock %}
+</html>

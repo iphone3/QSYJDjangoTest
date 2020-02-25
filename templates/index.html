@@ -1,114 +1,20 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base_tp.html' %}
+{% load static %}
 
-	<head>
-		<meta charset="utf-8" />
-		<title>全视眼镜商城</title>
-		<!-- 样式重置 -->
-		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+{# index首页 #}
 
-		<!-- 基础样式 -->
-		<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+{# CSS#}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+{% endblock %}
 
-		<!--swiper-->
-		<link rel="stylesheet" type="text/css" href="/static/css/swiper.min.css" />
+{# JS#}
+{% block custom_js %}
+    <script src="{% static 'js/index.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
 
-		<!-- 主页样式 -->
-		<link rel="stylesheet" type="text/css" href="/static/css/index.css" />
-	</head>
-
-	<body>
-		<!-- 顶部 -->
-        {% include "shortcut_tp.html" %}
-
-		<!-- 头部 -->
-		<div id="header">
-			<div class="content">
-				<div class="nav-t">
-					<div class="logo fl">
-						<a href="index.html"><img src="/static/img/logo-big.png"></a>
-						<b>QSYJ</b>
-					</div>
-					<div class="search">
-						<div class="s-input fl">
-							<input type="text" name="search" id="search" placeholder="彩瞳" />
-							<ul class="histery">
-								<li>
-									<i>givre美瞳</i>
-									<b>删除</b>
-								</li>
-								<li>
-									<i>隐形眼镜</i>
-									<b>删除</b>
-								</li>
-								<li>
-									<i>隐形眼镜盒</i>
-									<b>删除</b>
-								</li>
-								<li>
-									<i>护理液</i>
-									<b>删除</b>
-								</li>
-								<li>全部删除</li>
-							</ul>
-						</div>
-						<div class="s-bt fl">搜索</div>
-					</div>
-					<div class="car fr">
-						<div class="car-bt">
-							购物车
-							<i>3</i> 件
-						</div>
-						<div class="car-list">
-							<div class="car-item">
-								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
-								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
-								<div class="price fr">
-									<p>￥93.00 x 1</p>
-									<b class="del">删除</b>
-								</div>
-
-							</div>
-							<div class="car-item">
-								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
-								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
-								<div class="price fr">
-									<p>￥93.00 x 1</p>
-									<b class="del">删除</b>
-								</div>
-
-							</div>
-							<div class="car-item">
-								<div class="img fl"><img src="/static/img/hes-1.jpg"></div>
-								<div class="name fl">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片</div>
-								<div class="price fr">
-									<p>￥93.00 x 1</p>
-									<b class="del">删除</b>
-								</div>
-
-							</div>
-							<div class="shopping">
-								<div class="num fl">共3件商品</div>
-								<div class="shopping-bt fr">去购物车</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="nav-b">
-					<div class="navbar-item fl active">
-						<a href="index.html">首页</a>
-					</div>
-					<div class="navbar-item fl">
-						<a href="contact-lens.html">彩瞳</a>
-					</div>
-					<div class="navbar-item fl">
-						<a href="nurse-goods.html">护理用品</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 主体内容 -->
+{# 主体内容#}
+{% block container %}
 		<div id="qs-container">
 			<div class="fs">
 				<!--侧边栏-->
@@ -727,7 +633,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 			<!-- 眼镜框架 -->
 			<div class="goods-zone">
 				<div class="goods-hd">
@@ -866,7 +772,7 @@
 					</a>
 				</div>
 			</div>
-			
+
 			<!-- 太阳眼镜 -->
 			<div class="goods-zone">
 				<div class="goods-hd">
@@ -1005,7 +911,7 @@
 					</div>
 				</div>
 			</div>
-		
+
 			<!-- 镜片 -->
 			<div class="goods-zone">
 				<div class="goods-hd">
@@ -1166,19 +1072,4 @@
 				<i></i>
 			</div>
 		</div>
-
-		<!-- 底部 -->
-		{% include 'footer_tp.html' %}
-	</body>
-
-	<!-- JQ -->
-	<script src="/static/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-
-	<!--swiper-->
-	<script src="/static/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
-
-	<!-- 主页内容 -->
-	<script src="/static/js/index.js" type="text/javascript" charset="utf-8"></script>
-
-	<script src="/static/js/base.js" type="text/javascript" charset="utf-8"></script>
-</html>
+{% endblock %}

@@ -33,6 +33,11 @@
                                 {{ forget_form.errors.captcha }}
                             </div>
                         {% endif %}
+                        {% if err_msg %}
+                            <div class="err">
+                                {{ err_msg }}
+                            </div>
+                        {% endif %}
 
 						<input class="login-bt" type="submit" value="提    交"/>
 					</form>

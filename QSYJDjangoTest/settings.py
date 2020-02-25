@@ -77,6 +77,10 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # MEDIA_URL配置
+                # 配置好之后，就会将MEDIA_URL注册到HTML中，即HTML就可以使用MEDIA_URL变量
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -135,13 +139,15 @@ USE_L10N = True
 USE_TZ = False
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+# 静态文件
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# 上传文件
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # 自定义认证处理
 AUTHENTICATION_BACKENDS = (

@@ -58,35 +58,34 @@
 #qs-container > .main-zone{
 	width: 960px;
 	background: white;
+	text-align: left;
 }
-
-#qs-container > .main-zone > table{
+#qs-container > .main-zone > .select-tab{
+	width: 958px;
 	border: 1px solid #BBBBBB;
-	width: 100%;
+	border-bottom: 0;
 }
-#qs-container > .main-zone > table tr{
-	height: 39px;
+#qs-container > .main-zone > .select-tab > .tab-item{
+	width: 80px;
+	height: 38px;
 	line-height: 39px;
-	border: 1px solid #BBBBBB;
+	float: left;
+	text-align: center;
 }
-#qs-container > .main-zone > table tr a{
-/* 	cursor:pointer;
-	user-select:none; */
+#qs-container > .main-zone > .select-tab > .tab-item > a{
 	color: black;
-	font-size: 14px;
-	display: inline-block;	
-	width: 100%;
-	height: 100%;
 }
-#qs-container > .main-zone > table tr a.active{
+#qs-container > .main-zone > .select-tab > .tab-item > a.active{
 	color: red;
 }
-#qs-container > .main-zone table tr td:first-child{
+#qs-container > .main-zone > .select-tab > .tab-item:first-child{
 	width: 120px;
 	background: #BBBBBB;
 	color: white;
 	font-size: 14px;
 }
+
+
 #qs-container > .main-zone > .goods-wrap{
 	width: 960px;
 	overflow: hidden;
@@ -128,6 +127,9 @@
 	margin-bottom: 20px;
 	text-align: left;	
 	position: relative;
+}
+#qs-container > .main-zone > .goods-wrap > .goods-zone > .goods-ct > .goods-item > img{
+	width: 223px;
 }
 #qs-container > .main-zone > .goods-wrap > .goods-zone > .goods-ct > .goods-item > .price{
 	height: 24px;
