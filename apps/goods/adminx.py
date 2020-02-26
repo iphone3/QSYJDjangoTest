@@ -1,17 +1,6 @@
 import xadmin
 from goods.models import HotSell, Brand, NurseGoods
 
-
-# class KeyWordsAdmin(object): # 护理用品 - 关键字
-#     # 后台显示字段
-#     list_display = ['key_name', 'key_type']
-#     # 字段过滤
-#     list_filter = ['key_type']
-#     # 搜索字段
-#     search_fields = ['key_name']
-# xadmin.site.register(KeyWords, KeyWordsAdmin)
-
-
 class BrandAdmin(object):   # 护理用品 - 品牌
     list_display = ['key_name','key_num']
     search_fields = ['key_name']

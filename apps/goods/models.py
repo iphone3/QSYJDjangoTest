@@ -1,18 +1,5 @@
 from django.db import models
 
-
-# 护理用品 - 关键字
-# class KeyWords(models.Model):
-#     key_name = models.CharField(max_length=32, verbose_name='关键字', default='')
-#     key_type = models.CharField(max_length=32, verbose_name='类型', choices=(('brand', '品牌'), ('specifications', '规格'), ('function', '功能'), ('texture', '材质'), ('price', '价格')), default='brand')
-#
-#     class Meta:
-#         verbose_name = '商品关键字'
-#         verbose_name_plural = verbose_name
-#
-#     def __str__(self):
-#         return self.key_name
-
 # 护理用品 - 品牌
 class Brand(models.Model):
     key_name = models.CharField(max_length=32, verbose_name='品牌名称', default='')

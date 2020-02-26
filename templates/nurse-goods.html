@@ -53,7 +53,7 @@
 					<div class="tab-item">品牌</div>
                     {% for brand in brands %}
                          <div class="tab-item">
-                             <a href="?brand_num={{ brand.key_num }}" class="{% if brand.key_num == brand_num %} active {% endif %}">{{ brand.key_name }}</a>
+                             <a href="?brand_num={{ brand.key_num }}&sort={{ sort }}" class="{% if brand.key_num == brand_num %} active {% endif %}">{{ brand.key_name }}</a>
                          </div>
                     {% endfor %}
 				</div>
@@ -62,12 +62,12 @@
 				<div class="goods-wrap">
 					<div class="goods-zone">
 						<div class="goods-tab">
-							<a href="#" class="active">综合</a>
-							<a href="#">
+							<a href="?brand_num={{ brand_num }}&sort=syn" class="{% ifequal sort 'syn' %}active{% endifequal %}">综合</a>
+							<a href="?brand_num={{ brand_num }}&sort=sales" class="{% ifequal sort 'sales' %}active{% endifequal %}">
 								销量
-								<img src="{% static 'img/arrow-down.png' %} " >
+								<img src="{% static 'img/arrow-down.png' %}" >
 							</a>
-							<a href="#">
+							<a href="?brand_num={{ brand_num }}&sort=price" class="{% ifequal sort 'price' %}active{% endifequal %}">
 								价格
 								<img src="{% static 'img/arrow-down.png' %}" >
 							</a>
@@ -77,7 +77,7 @@
                             {% for goods in nurse_goods.object_list %}
                                 <div class="goods-item">
                                     <img src="{{ MEDIA_URL }}{{ goods.goods_img }}" alt="">
-                                    <p class="price">￥ {{ goods.goods_price }}</p>
+                                    <p class="price">￥ {{ goods.goods_price }} 销量:{{ goods.goods_sales }} </p>
                                     <p class="name">{{goods.goods_name}}</p>
                                     <div class="atar_Show">
                                       <p tip="{{ goods.goods_tip }}"></p>
