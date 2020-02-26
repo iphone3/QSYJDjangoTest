@@ -14,7 +14,7 @@ class UserProfile(AbstractUser):
     birthday = models.DateField(max_length=8, verbose_name='生日', null=True, blank=True);
     gender = models.CharField(max_length=10,verbose_name='性别', choices=(('man', '男'),('women', '女')), default='man');
     address = models.CharField(max_length=100, verbose_name='地址', default='');
-    image = models.ImageField(max_length=100, verbose_name='头像', default='image/atom.png', upload_to='image/%Y/%m');
+    image = models.ImageField(max_length=100, verbose_name='头像', default='image/atom.png', upload_to='image/%Y/%m', null=True, blank=True);
 
     class Meta:
         verbose_name = '用户信息';

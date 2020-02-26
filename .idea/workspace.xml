@@ -2,28 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
-      <change afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0004_auto_20200225_1640.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0006_hotsell_goods_file.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0009_auto_20200225_2020.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0010_auto_20200225_2025.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0011_auto_20200225_2027.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base_tp.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/contact-lens.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/nurse-goods.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0014_auto_20200226_1558.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0016_auto_20200226_1619.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0017_auto_20200226_1626.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0018_auto_20200226_1640.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0019_auto_20200226_1641.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0020_delete_nursegoods.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0021_nursegoods.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0022_auto_20200226_1645.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/users/migrations/0004_auto_20200226_1626.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/nurse-goods.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/nurse-goods.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/forget.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forget.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header_tp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header_tp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/nurse-goods.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/nurse-goods.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +255,7 @@
       <workItem from="1582116984168" duration="135000" />
       <workItem from="1582117141082" duration="14000" />
       <workItem from="1582117167336" duration="26401000" />
-      <workItem from="1582538163937" duration="29213000" />
+      <workItem from="1582538163937" duration="39265000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
@@ -381,13 +376,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="django-line">
-          <url>file://$PROJECT_DIR$/templates/nurse-goods.html</url>
-          <line>97</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

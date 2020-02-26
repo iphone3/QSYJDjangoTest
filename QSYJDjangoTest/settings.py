@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',   # xadmin
     'crispy_forms', # xadmin
-    'captcha'
+    'captcha',  # 验证码
+    'pure_pagination',  # 分页器
 ]
 
 
@@ -164,3 +165,12 @@ EMAIL_HOST_USER = '18924235915@163.com'
 EMAIL_HOST_PASSWORD = 'zyz123'  # 客户端授权密码
 EMAIL_USE_TLS = False
 EMAIL_FROM = '18924235915@163.com'  # 指明发件人
+
+
+# 分页配置
+PAGINATION_SETTINGS = {
+    'PAGE_RANGE_DISPLAYED': 5,     # 当前页附近显示的个数
+    'MARGIN_PAGES_DISPLAYED': 2,    # 头和尾附近显示的个数
+    'SHOW_FIRST_PAGE_WHEN_INVALID': True,   # 如果按钮失效且不是404时，仅显示首页
+}
+

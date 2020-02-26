@@ -51,43 +51,13 @@
 			<div class="main-zone fr">
 				<div class="select-tab clearfix">
 					<div class="tab-item">品牌</div>
-					<div class="tab-item"><a href="#" class="active">全部</a></div>
-					<div class="tab-item"><a href="#">爱尔康</a></div>
-					<div class="tab-item"><a href="#">库博</a></div>
-					<div class="tab-item"><a href="#">海昌</a></div>
-					<div class="tab-item"><a href="#">视康</a></div>
-					<div class="tab-item"><a href="#">蔡司</a></div>
-					<div class="tab-item"><a href="#">美尼康</a></div>
-					<div class="tab-item"><a href="#">其他</a></div>
+                    {% for brand in brands %}
+                         <div class="tab-item">
+                             <a href="?brand_num={{ brand.key_num }}" class="{% if brand.key_num == brand_num %} active {% endif %}">{{ brand.key_name }}</a>
+                         </div>
+                    {% endfor %}
 				</div>
-				<div class="select-tab clearfix">
-					<div class="tab-item">规格</div>
-					<div class="tab-item"><a href="#">促销装</a></div>
-					<div class="tab-item"><a href="#">大瓶装</a></div>
-					<div class="tab-item"><a href="#">中瓶装</a></div>
-					<div class="tab-item"><a href="#">小瓶装</a></div>
-				</div>
-				<div class="select-tab clearfix">
-					<div class="tab-item">功能</div>
-					<div class="tab-item"><a href="#">护理液</a></div>
-					<div class="tab-item"><a href="#">伴侣盒</a></div>
-					<div class="tab-item"><a href="#">润眼液</a></div>
-					<div class="tab-item"><a href="#">清洗器</a></div>
-					<div class="tab-item"><a href="#">取戴器</a></div>
-					<div class="tab-item"><a href="#">双联盒</a></div>
-				</div>
-				<div class="select-tab clearfix">
-					<div class="tab-item">材质</div>
-					<div class="tab-item"><a href="#">硅胶</a></div>
-					<div class="tab-item"><a href="#">尼龙</a></div>
-					<div class="tab-item"><a href="#">其他</a></div>
-				</div>
-				<div class="select-tab clearfix" style="border-bottom: 1px solid #BBBBBB;">
-					<div class="tab-item">价格</div>
-					<div class="tab-item"><a href="#"> <49 </a></div>
-					<div class="tab-item"><a href="#">50~99</a></div>
-					<div class="tab-item"><a href="#">100~299</a></div>
-				</div>
+
 
 				<div class="goods-wrap">
 					<div class="goods-zone">
@@ -104,7 +74,7 @@
 						</div>
 
 						<div class="goods-ct clearfix">
-                            {% for goods in nurse_goods %}
+                            {% for goods in nurse_goods.object_list %}
                                 <div class="goods-item">
                                     <img src="{{ MEDIA_URL }}{{ goods.goods_img }}" alt="">
                                     <p class="price">￥ {{ goods.goods_price }}</p>
@@ -119,15 +89,41 @@
                             {% endfor %}
                         </div>
 
-						<div class="page-zone">
-							<a href="#" class="back">上一页</a>
-							<a href="#">1</a>
-							<a href="#">2</a>
-							....
-							<a href="#">9</a>
-							<a href="#">10</a>
-							<a href="#" class="next">下一页</a>
-						</div>
+
+                        {% load i18n %}
+                        <div class="pagination page-zone">
+                            {% if nurse_goods.has_previous %}
+                                <a href="?{{ nurse_goods.previous_page_number.querystring }}" class="prev"> {% trans "上一页" %}</a>
+                            {% else %}
+                                <span class="disabled prev">{% trans "上一页" %}</span>
+                            {% endif %}
+                            {% for page in nurse_goods.pages %}
+                                {% if page %}
+                                    {% ifequal page nurse_goods.number %}
+                                        <span class="current page">{{ page }}</span>
+                                    {% else %}
+                                        <a href="?{{ page.querystring }}" class="page">{{ page }}</a>
+                                    {% endifequal %}
+                                {% else %}
+                                    ...
+                                {% endif %}
+                            {% endfor %}
+                            {% if nurse_goods.has_next %}
+                                <a href="?{{ nurse_goods.next_page_number.querystring }}" class="next">{% trans "下一页" %}</a>
+                            {% else %}
+                                <span class="disabled next">{% trans "下一页" %}</span>
+                            {% endif %}
+                        </div>
+{#						<div class="page-zone">#}
+{#							<a href="#" class="back">上一页</a>#}
+{#							<a href="#">1</a>#}
+{#							<a href="#">2</a>#}
+{#							....#}
+{#							<a href="#">9</a>#}
+{#							<a href="#">10</a>#}
+{#							<a href="#" class="next">下一页</a>#}
+{#						</div>#}
+
 					</div>
 				</div>
 			</div>
