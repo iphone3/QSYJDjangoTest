@@ -19,7 +19,7 @@
 		<div id="lg-container">
 			<div class="login-wrap">
 				<div class="login-form">
-				 	<form action="{% url 'forget' %}" method="post">
+				 	<form action="{% url 'users:forget' %}" method="post">
                         {% csrf_token %}
 						<div class="user-wrap">
 							<input class="login-innput" type="email" required name="email" id="email" {% if forget_form.email.value != None %} value="{{ forget_form.email.value }}" {% endif %}   placeholder="邮箱" />

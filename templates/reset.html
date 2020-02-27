@@ -17,7 +17,7 @@
 		<!-- 主体内容 -->
 		<div id="rg-container">
 			<div class="register-wrap">
-				<form action="{% url 'reset_sub' %}" method="post">
+				<form action="{% url 'users:reset_sub' %}" method="post">
                     {% csrf_token %}
 					<p class="mb-20" style="font-size: 20px;">
 						已确认通过，请设置新的密码!

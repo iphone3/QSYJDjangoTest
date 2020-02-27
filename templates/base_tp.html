@@ -30,12 +30,24 @@
 			<div class="content">
 				<ul class="fl">
 					<li class="welcome">欢迎来到全视眼镜商城!</li>
-					<li class="login ml-20">
-						<a href="{% url 'login' %}">登录</a>
-					</li>
-					<li class="register">
-						[<a href="{% url 'register' %}">免费注册</a>]
-					</li>
+                    {% if request.user.is_authenticated %}
+                        <li class="user-name mr-10">
+                            欢迎
+                            <img src="{{ MEDIA_URL }}{{ request.user.image }}" >
+                            <a href="user-detail.html" style="color: red;">{{ request.user.nick_name }} </a>
+                        </li>
+                        <li class="quit">
+                            <a href="{% url 'users:logout' %}" style="color: black;">退出</a>
+                        </li>
+                    {% else %}
+                        <li class="login ml-20">
+                            <a href="{% url 'users:login' %}">登录</a>
+                        </li>
+                        <li class="register">
+                            [<a href="{% url 'users:register' %}">免费注册</a>]
+                        </li>
+                    {% endif %}
+
 				</ul>
 				<ul class="fr">
 					<li class="car">
@@ -129,10 +141,10 @@
 						<a href="{% url 'index' %}">首页</a>
 					</div>
 					<div class="navbar-item fl {% if nav_at == 'contact' %} active {% endif %}">
-						<a href="{% url 'contact' %}">彩瞳</a>
+						<a href="{% url 'goods:contact' %}">彩瞳</a>
 					</div>
 					<div class="navbar-item fl {% if nav_at == 'nurse' %} active {% endif %}">
-						<a href="{% url 'nurse' %}">护理用品</a>
+						<a href="{% url 'goods:nurse' %}">护理用品</a>
 					</div>
 				</div>
 			</div>

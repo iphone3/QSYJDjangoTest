@@ -19,7 +19,7 @@
 		<div id="lg-container">
 			<div class="login-wrap">
 				<div class="login-form">
-					<form action="{% url 'login' %}" method="post">
+					<form action="{% url 'users:login' %}" method="post">
                         {% csrf_token %}
 						<div class="user-wrap {% if login_form.errors.username %} error-input {% endif %}">
 							<input class="login-innput" type="text" required value="{{ login_form.username.value }}" name="username" id="username" placeholder="用户名/邮箱" />
@@ -40,7 +40,7 @@
                             </div>
                         {% endif %}
 						<p class="forget-wrap">
-							<a href="{% url 'forget' %}">忘记密码？</a>
+							<a href="{% url 'users:forget' %}">忘记密码？</a>
 						</p>
 						<input class="login-bt" type="submit" value="登    录"/>
 					</form>

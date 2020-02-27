@@ -169,6 +169,13 @@
 	color: white;
 	border-radius: 5px;
 	margin-left: 5px;
+	vertical-align: middle;
+}
+#qs-container > .main-zone > .goods-wrap > .goods-zone > .goods-ct > .goods-item:hover > .add-cart > img{
+	width: 25px;
+	vertical-align: middle;
+	float: right;
+	margin-right: 7px;
 }
 
 #qs-container > .main-zone > .goods-wrap > .goods-zone > .page-zone{

@@ -16,6 +16,36 @@
 {# JS#}
 {% block custom_js %}
     <script src="{% static 'js/nurse-goods.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $('#qs-container > .main-zone > .goods-wrap > .goods-zone > .goods-ct > .goods-item > .add-cart > img').click(function(){
+            var that = $(this)
+
+            // 获取自定义属性【商品ID，设置在按钮中方便获取】
+            var goods_id = $(this).attr('data-goods-id')
+
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'goods:favorite' %}",
+                beforeSend:function (xhr, settings) {
+                    xhr.setRequestHeader('X-CSRFToken', "{{ csrf_token }}")
+                },
+                data:{
+                    'goods_id':goods_id
+                },
+                success: function (data) {
+                    if (data.status == 'succeed'){  // 操作成功
+                        if (data.is_fav == '1'){    // 收藏
+                            that.attr("src", "{% static 'img/heart-2.png' %}").attr('data-fav', '1')
+                        } else {    // 取消收藏
+                            that.attr("src", "{% static 'img/heart-1.png' %}").attr('data-fav', '0')
+                        }
+                    } else {   // 失败跳转到登录页面
+                        window.location.href = "{% url 'users:login' %}"
+                    }
+                }
+            })
+        })
+    </script>
 {% endblock %}
 
 {# 主体内容#}
@@ -84,6 +114,19 @@
                                     </div>
                                     <div class="add-cart">
                                         <b>加入购物车</b>
+                                        {% if user_favorites %}
+                                            {# 循环判断当前的商品，是否为收藏的 #}
+                                            <img
+                                                {% for favorite in user_favorites  %}
+                                                    {% if goods.goods_id == favorite.goods_id %}
+                                                        src="{% static 'img/heart-2.png' %}"
+                                                    {% endif %}
+                                                {% endfor %}
+                                                src="{% static 'img/heart-1.png' %}"
+                                                data-goods-id="{{ goods.goods_id }}" >
+                                        {% else %}
+                                            <img src="{% static 'img/heart-1.png' %}" data-goods-id="{{ goods.goods_id }}" >
+                                        {% endif %}
                                     </div>
                                 </div>
                             {% endfor %}
@@ -114,16 +157,6 @@
                                 <span class="disabled next">{% trans "下一页" %}</span>
                             {% endif %}
                         </div>
-{#						<div class="page-zone">#}
-{#							<a href="#" class="back">上一页</a>#}
-{#							<a href="#">1</a>#}
-{#							<a href="#">2</a>#}
-{#							....#}
-{#							<a href="#">9</a>#}
-{#							<a href="#">10</a>#}
-{#							<a href="#" class="next">下一页</a>#}
-{#						</div>#}
-
 					</div>
 				</div>
 			</div>

@@ -17,7 +17,7 @@
 		<!-- 主体内容 -->
 		<div id="rg-container">
 			<div class="register-wrap">
-				<form action="{% url 'register' %}" method="post">
+				<form action="{% url 'users:register' %}" method="post">
                     {% csrf_token %}
                     <div class="username-wrap {% if register_form.errors.username %} error-input {% endif %}">
 						<label for="username">用户名</label><input type="text" required {% if register_form.username.value != None %} value="{{ register_form.username.value }}" {% endif %} name="username" id="username" placeholder="用户名"/>

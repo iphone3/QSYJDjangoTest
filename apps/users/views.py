@@ -2,7 +2,7 @@ from django.contrib import auth
 from django.contrib.auth.backends import ModelBackend
 from django.core.cache import cache
 from django.db.models import Q
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from users.models import UserProfile
 from django.views.generic.base import View
 from utils.email_tool import send_email
@@ -42,7 +42,7 @@ class LoginView(View):
             if user is not None:
                 if user.is_active: # 激活状态
                     auth.login(request, user)  # 登录成功(处理了request，添加登录信息，其实就是cookie/session的封装)
-                    return render(request, 'index.html')
+                    return redirect('index')
                 else:
                     # 如果超时，重新发送
                     send_email(user.username,user.email)
@@ -73,7 +73,7 @@ class LoginView(View):
 class LogoutView(View):
     def get(self, request):
         auth.logout(request)
-        return render(request, 'index.html')
+        return redirect('index')
 
 
 # 注册
