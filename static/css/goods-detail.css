@@ -116,7 +116,7 @@ body{
 #goods-wrap > .product-intro > .itemInfo-wrap > .choose-attrs > .color > .dd > .item{
 	border: 1px solid #BBBBBB;
 	background-color: #F7F7F7;
-	width: 80px;
+	width: 85px;
 	height: 40px;
 	float: left;
 	margin: 0 10px 10px 0;
@@ -152,7 +152,7 @@ body{
 	text-align: center;
 }
 #goods-wrap > .product-intro > .itemInfo-wrap > .choose-attrs > .num > .dd{
-	width: 150px;
+	width: 156px;
 	height: 40px;
 	line-height: 40px;
 	tab-size: center;

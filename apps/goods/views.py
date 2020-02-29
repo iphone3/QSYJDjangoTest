@@ -1,25 +1,35 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from goods.models import HotSell, NurseGoods, Brand
+from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, Stock
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
-
-# 首页
 from operation.models import UserFavorite
 from users.models import UserProfile
 
 
-class IndexView(View):
+class IndexView(View):  # 首页
     def get(self, request):
         return render(request, 'index.html', {'nav_at':'index'})
 
-# 彩瞳
-class ContactView(View):
-    def get(self, request):
-        return render(request, 'contact-lens.html', {'nav_at':'contact'})
 
-# 护理用品
-class NurseView(View):
+class ContactView(View):  # 彩瞳
+    def get(self, request):
+        # 轮播图
+        banners = ContactLensBanner.objects.all()
+
+        # 商品
+        contact_lens_goods = ContactLensGoods.objects.all()
+
+        arg_dir = {
+            'nav_at': 'contact',    # 标签页的使能
+            'banners': banners,   # 轮播图
+            'contact_lens_goods': contact_lens_goods, # 主体商品
+        }
+
+        return render(request, 'contact-lens.html', arg_dir)
+
+
+class NurseView(View):  # 护理用品
     def get(self, request):
         # 商品品牌
         brands = Brand.objects.all().order_by('key_num')
@@ -73,8 +83,7 @@ class NurseView(View):
         return render(request, 'nurse-goods.html', arg_dir)
 
 
-# 收藏
-class FavoriteView(View):
+class FavoriteView(View):   # 收藏
     def post(self, request):    # 此处是Ajax操作
         # 获取数据
         goods_id = int(request.POST.get('goods_id', 0))
@@ -97,3 +106,38 @@ class FavoriteView(View):
             return HttpResponse('{"status":"succeed", "msg":"收藏成功", "is_fav":"1"}', content_type='application/json')
 
 
+class GoodsDetailView(View):    # 商品详情页
+    def get(self, request, sku_id):
+        # 获取到具体商品的SKU  【具体的商品】
+        sku = Stock.objects.get(s_id=sku_id)
+
+        # 根据SKU获取到SPU 【产品】
+        spu = sku.s_product
+
+        # 获取对应SPU 下的所有 SKU 【该产品下订单所有商品，要获取其属性】
+        skus = spu.stock_set.all()
+
+
+        # 获取产品的属性名
+        attrs = {}
+        # 根据SKU获取到对应的属性
+        stock_attr_ops = sku.stockattrop_set.all()
+        for stock_attr_op in stock_attr_ops:    # 遍历获取属性和属性选项
+            attr_name = stock_attr_op.s_attr.a_name
+            attr_val = stock_attr_op.s_attr_op.o_name
+            if attr_name in attrs:  # 是否存在这个key
+                temp_arr = attrs[attr_name]     # 取出key对应的值，后续追加新的属性值
+                temp_arr.append(attr_val)
+                attrs[attr_name] = temp_arr
+            else:
+                attrs[attr_name] = [attr_val]
+
+        for key,value in attrs.items:
+            print(key)
+            print(value)
+
+        arg_dir = {
+            'attrs':attrs
+        }
+
+        return render(request, 'goods-detail.html', arg_dir)

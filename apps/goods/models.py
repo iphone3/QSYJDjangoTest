@@ -8,7 +8,7 @@ class Brand(models.Model):
     key_num = models.IntegerField(verbose_name='显示序号', default=1)
 
     class Meta:
-        verbose_name = '商品品牌'
+        verbose_name = '护理用品-品牌'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -24,7 +24,7 @@ class HotSell(models.Model):
     goods_img = models.ImageField(max_length=100, verbose_name='商品图片', upload_to='image/%Y/%m', default='image/atom.png', null=True, blank=True)
 
     class Meta:
-        verbose_name = '热销排行榜'
+        verbose_name = '护理用品-热销榜'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -33,7 +33,7 @@ class HotSell(models.Model):
 
 # 护理用户 - 商品
 class NurseGoods(models.Model):
-    goods_id = models.IntegerField(verbose_name='商品详情ID')
+    goods_id = models.IntegerField(verbose_name='商品详情ID', unique=True)
     goods_name = models.CharField(max_length=255, verbose_name='商品名称', default='')
     goods_price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='商品价格', default=0)
     goods_img = models.ImageField(max_length=100, verbose_name='商品图片', upload_to='image/%Y/%m',default='image/atom.png', null=True, blank=True)
@@ -43,9 +43,146 @@ class NurseGoods(models.Model):
     add_time = models.DateField(default=datetime.now, verbose_name='添加时间')
 
     class Meta:
-        verbose_name = '护理用品'
+        verbose_name = '护理用品-商品'
         verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.goods_name
 
+
+# 彩瞳 - 轮播图
+class ContactLensBanner(models.Model):
+    goods_id = models.IntegerField(verbose_name='商品详情ID', unique=True)
+    goods_name = models.CharField(max_length=255, verbose_name='商品名称', default='')
+    goods_img = models.ImageField(max_length=100, verbose_name='商品图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
+    add_time = models.DateField(default=datetime.now, verbose_name='添加时间')
+
+    class Meta:
+        verbose_name = '彩瞳 - 轮播图'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.goods_name
+
+# 彩瞳 - 商品
+class ContactLensGoods(models.Model):
+    goods_id = models.IntegerField(verbose_name='商品详情ID', unique=True)
+    goods_name = models.CharField(max_length=255, verbose_name='商品名称', default='')
+    goods_price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='商品价格', default=0)
+    goods_img = models.ImageField(max_length=100, verbose_name='商品图片', upload_to='image/%Y/%m',default='image/atom.png', null=True, blank=True)
+    goods_discount = models.CharField(max_length=255, verbose_name='商品优惠', default='')
+    add_time = models.DateField(default=datetime.now, verbose_name='添加时间')
+
+    class Meta:
+        verbose_name = '彩瞳-商品'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.goods_name
+
+
+
+
+#####################
+# 商品分类
+class Assort(models.Model):
+    a_name = models.CharField(max_length=100, default='', verbose_name='商品分类')
+
+    class Meta:
+        verbose_name = '商品分类'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.a_name
+
+
+# SPU 标准产品单位
+class Product(models.Model):
+    p_name = models.CharField(max_length=255, default='', verbose_name='产品名称')
+    p_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
+
+    class Meta:
+        verbose_name = '产品单位SPU'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.p_name
+
+# SKU 库存量单位
+class Stock(models.Model):
+    # 需要手动创建一个对象，1000001开始
+    s_id = models.BigAutoField(primary_key=True,verbose_name='商品详情ID')
+    s_name = models.CharField(max_length=255, default='', verbose_name='商品名')
+    s_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
+
+    class Meta:
+        verbose_name = '库存量单位SKU'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.s_name
+
+
+# 商品属性
+class Attribute(models.Model):
+    a_name = models.CharField(max_length=100, default='', verbose_name='商品属性名')
+    a_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
+
+    class Meta:
+        verbose_name = '商品属性'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.a_name
+
+
+# 商品属性选项
+class AttributeOption(models.Model):
+    o_name = models.CharField(max_length=100, default='', verbose_name='商品属性选项名')
+    o_attr = models.ForeignKey(Attribute, on_delete=models.CASCADE, verbose_name='所属商品属性')
+
+    class Meta:
+        verbose_name = '商品属性选项'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.o_name
+
+# SKU属性选项
+class StockAttrOp(models.Model):
+    s_sku = models.ForeignKey(Stock, on_delete=models.CASCADE, verbose_name='SKU ID')
+    s_attr_op = models.ForeignKey(AttributeOption, on_delete=models.CASCADE, verbose_name='AttributeOption ID')
+    s_attr = models.ForeignKey(Attribute, on_delete=models.CASCADE, verbose_name='Attribute ID')
+
+    class Meta:
+        verbose_name = 'SKU属性选项'
+        verbose_name_plural = verbose_name
+
+# 商品详情轮播图
+class GoodsDetailBanner(models.Model):
+    g_big_img = models.ImageField(max_length=100, verbose_name='大图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
+    g_small_img = models.ImageField(max_length=100, verbose_name='小图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
+    s_spu = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SPU ID')
+
+    class Meta:
+        verbose_name = '商品详情-轮播图'
+        verbose_name_plural = verbose_name
+
+
+# SKU轮播图
+class SkuBanner(models.Model):
+    s_sku = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SKU ID')
+    s_goods_detail = models.ForeignKey(GoodsDetailBanner, on_delete=models.CASCADE, verbose_name='商品详情轮播图ID')
+
+    class Meta:
+        verbose_name = 'SKU轮播图'
+        verbose_name_plural = verbose_name
+
+# 商品详情图片
+class GoodsDetail(models.Model):
+    g_img = models.ImageField(max_length=100, verbose_name='大图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
+    g_spu = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SPU ID')
+
+    class Meta:
+        verbose_name = '商品详情图片'
+        verbose_name_plural = verbose_name

@@ -37,7 +37,7 @@
                             <a href="user-detail.html" style="color: red;">{{ request.user.nick_name }} </a>
                         </li>
                         <li class="quit">
-                            <a href="{% url 'users:logout' %}" style="color: black;">退出</a>
+                            <a href="{% url 'users:logout' %}" style="color: black;">[退出]</a>
                         </li>
                     {% else %}
                         <li class="login ml-20">
