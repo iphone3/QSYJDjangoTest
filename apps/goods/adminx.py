@@ -1,6 +1,6 @@
 import xadmin
 from goods.models import HotSell, Brand, NurseGoods, ContactLensBanner, ContactLensGoods, Assort, Product, Stock, \
-    Attribute, AttributeOption, StockAttrOp, GoodsDetailBanner, SkuBanner, GoodsDetail
+    Attribute, AttributeOption, StockAttrOp, GoodsDetailBanner, SkuBanner, GoodsDetail, Discount
 
 
 class BrandAdmin(object):   # 护理用品 - 品牌
@@ -41,15 +41,22 @@ class AssortAdmin(object): # 商品分类
 xadmin.site.register(Assort, AssortAdmin)
 
 
+class DiscountAdmin(object):    # 促销
+    list_display = ['d_content']
+    list_filter = ['d_content']
+    search_fields = ['d_content']
+xadmin.site.register(Discount, DiscountAdmin)
+
+
 class ProductAdmin(object): # SPU 标准产品单位
-    list_display = ['p_name', 'p_assort']
-    list_filter = ['p_name', 'p_assort']
+    list_display = ['p_name', 'p_assort', 'p_brand']
+    list_filter = ['p_name', 'p_assort', 'p_brand']
     search_fields = ['p_name', 'p_assort']
 xadmin.site.register(Product, ProductAdmin)
 
 
 class StockAdmin(object):   # SKU 库存量单位
-    list_display = ['s_name', 's_product', 's_id']
+    list_display = ['s_name', 's_product', 's_price','s_id']
     list_filter = ['s_name', 's_product']
     search_fields = ['s_name', 's_product']
 xadmin.site.register(Stock, StockAdmin)

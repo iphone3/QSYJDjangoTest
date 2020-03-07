@@ -1,6 +1,6 @@
 {% extends 'base_tp.html' %}
 {% load static %}
-{% load hash %}
+{% load get_item %}
 
 {# goods-detail商品详情 #}
 
@@ -11,7 +11,13 @@
 
 {# JS#}
 {% block custom_js %}
+    <!-- 预览 -->
+	<script src="{% static 'js/jqZoome.js' %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static 'js/goods-detail.js' %}" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{# 导航去掉#}
+{% block nav-bar %}
 {% endblock %}
 
 {# 主体内容#}
@@ -23,18 +29,16 @@
 					<div class="right-extra">
 					  <!--产品参数开始-->
 					  <div>
-					    <div id="preview" class="spec-preview"> <span class="jqzoom"><img jqimg="../img/detail-b1.jpg" src="../img/detail-s1.jpg" /></span> </div>
+					    <div id="preview" class="spec-preview"> <span class="jqzoom">
+                            <img jqimg="{{ MEDIA_URL }}{{ sku_banner.g_big_img }}" src="{{ MEDIA_URL }}{{ sku_banner.g_small_img }}" /></span>
+                        </div>
 					    <!--缩图开始-->
 					    <div class="spec-scroll"> <a class="prev">&lt;</a> <a class="next">&gt;</a>
 					      <div class="items">
 					        <ul>
-					          <li><img alt="佳能" bimg="../img/detail-b1.jpg" src="../img/detail-s1.jpg" onmousemove="preview(this);"></li>
-					          <li><img alt="佳能" bimg="../img/detail-b2.jpg" src="../img/detail-s2.jpg" onmousemove="preview(this);"></li>
-					          <li><img alt="佳能" bimg="../img/detail-b3.jpg" src="../img/detail-s3.jpg" onmousemove="preview(this);"></li>
-					          <li><img alt="佳能" bimg="../img/detail-b4.jpg" src="../img/detail-s4.jpg" onmousemove="preview(this);"></li>
-					          <li><img alt="佳能" bimg="../img/detail-b5.jpg" src="../img/detail-s5.jpg" onmousemove="preview(this);"></li>
-							  <li><img alt="佳能" bimg="../img/detail-b4.jpg" src="../img/detail-s4.jpg" onmousemove="preview(this);"></li>
-							  <li><img alt="佳能" bimg="../img/detail-b1.jpg" src="../img/detail-s1.jpg" onmousemove="preview(this);"></li>
+                                {% for banner in banners %}
+                                    <li><img alt="QSYJ" bimg="{{ MEDIA_URL }}{{ banner.g_big_img }}" src="{{ MEDIA_URL }}{{ banner.g_small_img }}" onmousemove="preview(this);"></li>
+                                {% endfor %}
 					        </ul>
 					      </div>
 					    </div>
@@ -45,17 +49,19 @@
 				</div>
 				<!-- 规格选择 -->
 				<div class="itemInfo-wrap">
-					<p class="name">海俪恩美瞳彩色隐形眼镜萌生宠爱日抛30片 棕色0度</p>
+					<p class="name">{{sku.s_name}}</p>
 					<p class="oth">商品活动送不停，快来选购吧~  <a href="#" class="collect">[收藏商品]</a></p>
 					<div class="summary">
 						<div class="price">
 							<div class="dt">商&nbsp;城&nbsp;价</div>
-							<div class="dd"> ￥95.00</div>
+							<div class="dd"> ￥{{ sku.s_price }}</div>
 						</div>
 						<div class="promotion">
-							<div class="dt">促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</div>
-							<i>满减</i>
-							<div class="dd">满129元减10元</div>
+							<div class="dt">促&nbsp;&nbsp;&nbsp;销</div>
+							{% if discount != '无' %}
+							    <i>满减</i>
+							{% endif %}
+							<div class="dd">{{ discount }}</div>
 						</div>
 						<div class="comment">
 							<p>累计评价</p>
@@ -63,19 +69,24 @@
 						</div>
 					</div>
 					<div class="weight">
-						<div class="dt">重&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;量</div>
+						<div class="dt">重&nbsp;&nbsp;&nbsp;量</div>
 						<div class="dd">0.09kg</div>
 					</div>
 					<div class="choose-attrs">
-                        
-                        {% for key,value in attrs %}
-                            <div class="color clearfix">
+                        {% for key in attrs %}
+                            <div class="size clearfix">
                                 <div class="dt">
                                     选择{{ key }}
                                 </div>
                                 <div class="dd">
-                                    {% for foo in value %}
-                                        <div class="item">{{ foo }}</div>
+                                    {% for attr_value in attrs|get_item:key %}
+                                        <div class="item
+                                            {% for c_attr in current_attrs %}
+                                                {% if c_attr == attr_value %}
+                                                    select
+                                                {% endif %}
+                                            {% endfor %}
+                                        ">{{ attr_value }}</div>
                                     {% endfor %}
                                 </div>
                             </div>
@@ -160,48 +171,10 @@
 					<div class="tab-cont">
 						<!-- 简介 -->
 						<div class="synopsis">
-							<div class="parameter">
-								<ul class="clearfix">
-									<li style="width: 100%;">品牌: 海俪恩（HORIEN）</li>
-								</ul>
-								<ul class="clearfix">
-									<li>商品名称：海俪恩30片</li>
-									<li>商品编号：2463287</li>
-									<li>商品毛重：90.00g</li>
-									<li>商品产地：江苏丹阳</li>
-									<li>佩戴周期：日抛</li>
-									<li>风格：约会</li>
-									<li>基弧：8.6mm</li>
-									<li>含水：43%-55%</li>
-									<li>直径：13.8-14.2mm</li>
-									<li>色系：棕色系</li>
-									<li>国产/进口：国产</li>
-								</ul>
-							</div>
 							<div class="detail-cont clearfix">
-								<img src="../img/detail-1.jpg" alt="">
-								<img src="../img/detail-2.jpg" alt="">
-								<img src="../img/detail-3.jpg" alt="">
-								<img src="../img/detail-4.jpg" alt="">
-								<img src="../img/detail-5.jpg" alt="">
-								<img src="../img/detail-6.jpg" alt="">
-								<img src="../img/detail-7.jpg" alt="">
-								<img src="../img/detail-8.jpg" alt="">
-								<img src="../img/detail-9.jpg" alt="">
-								<img src="../img/detail-10.jpg" alt="">
-								<img src="../img/detail-11.jpg" alt="">
-								<img src="../img/detail-12.jpg" alt="">
-								<img src="../img/detail-13.jpg" alt="">
-								<img src="../img/detail-14.jpg" alt="">
-								<img src="../img/detail-15.jpg" alt="">
-								<img src="../img/detail-16.jpg" alt="">
-								<img src="../img/detail-17.jpg" alt="">
-								<img src="../img/detail-18.jpg" alt="">
-								<img src="../img/detail-19.jpg" alt="">
-								<img src="../img/detail-20.jpg" alt="">
-								<img src="../img/detail-21.jpg" alt="">
-								<img src="../img/detail-22.jpg" alt="">
-								<img src="../img/detail-23.jpg" alt="">
+								{% for goods_detail in goods_details %}
+                                    <img src="{{ MEDIA_URL }}{{ goods_detail.g_img }}" alt="">
+								{% endfor %}
 							</div>
 						</div>
 

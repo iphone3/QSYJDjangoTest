@@ -2,13 +2,13 @@ from datetime import datetime
 
 from django.db import models
 
-# 护理用品 - 品牌
+# 品牌
 class Brand(models.Model):
     key_name = models.CharField(max_length=32, verbose_name='品牌名称', default='')
     key_num = models.IntegerField(verbose_name='显示序号', default=1)
 
     class Meta:
-        verbose_name = '护理用品-品牌'
+        verbose_name = '品牌管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -89,20 +89,34 @@ class Assort(models.Model):
     a_name = models.CharField(max_length=100, default='', verbose_name='商品分类')
 
     class Meta:
-        verbose_name = '商品分类'
+        verbose_name = '分类管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.a_name
 
 
+# 促销
+class Discount(models.Model):
+    d_content = models.CharField(max_length=255, default='', verbose_name='促销内容')
+
+
+    class Meta:
+        verbose_name = '促销管理'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.d_content
+
 # SPU 标准产品单位
 class Product(models.Model):
     p_name = models.CharField(max_length=255, default='', verbose_name='产品名称')
+    p_brand = models.ForeignKey(Brand, on_delete=models.SET_DEFAULT,default='', null=True, blank=True, verbose_name='品牌')
     p_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
+    p_discount = models.ForeignKey(Discount, on_delete=models.SET_DEFAULT, default='', null=True, blank=True, verbose_name='促销信息')
 
     class Meta:
-        verbose_name = '产品单位SPU'
+        verbose_name = 'SPU管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -114,9 +128,10 @@ class Stock(models.Model):
     s_id = models.BigAutoField(primary_key=True,verbose_name='商品详情ID')
     s_name = models.CharField(max_length=255, default='', verbose_name='商品名')
     s_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
+    s_price = models.DecimalField(max_digits=8, decimal_places=2,verbose_name='商品价格', default=0)
 
     class Meta:
-        verbose_name = '库存量单位SKU'
+        verbose_name = 'SKU管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -129,7 +144,7 @@ class Attribute(models.Model):
     a_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
 
     class Meta:
-        verbose_name = '商品属性'
+        verbose_name = '属性管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -142,7 +157,7 @@ class AttributeOption(models.Model):
     o_attr = models.ForeignKey(Attribute, on_delete=models.CASCADE, verbose_name='所属商品属性')
 
     class Meta:
-        verbose_name = '商品属性选项'
+        verbose_name = '属性选项管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
@@ -171,7 +186,7 @@ class GoodsDetailBanner(models.Model):
 
 # SKU轮播图
 class SkuBanner(models.Model):
-    s_sku = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SKU ID')
+    s_sku = models.ForeignKey(Stock, on_delete=models.CASCADE, verbose_name='SKU ID')
     s_goods_detail = models.ForeignKey(GoodsDetailBanner, on_delete=models.CASCADE, verbose_name='商品详情轮播图ID')
 
     class Meta:

@@ -83,6 +83,9 @@ TEMPLATES = [
                 # 配置好之后，就会将MEDIA_URL注册到HTML中，即HTML就可以使用MEDIA_URL变量
                 'django.template.context_processors.media'
             ],
+            'libraries': {  # 自定义过滤器注册
+                'get_item': 'apps.utils.get_item',
+            },
         },
     },
 ]

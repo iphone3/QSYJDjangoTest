@@ -116,28 +116,51 @@ class GoodsDetailView(View):    # 商品详情页
 
         # 获取对应SPU 下的所有 SKU 【该产品下订单所有商品，要获取其属性】
         skus = spu.stock_set.all()
-
-
-        # 获取产品的属性名
         attrs = {}
-        # 根据SKU获取到对应的属性
-        stock_attr_ops = sku.stockattrop_set.all()
-        for stock_attr_op in stock_attr_ops:    # 遍历获取属性和属性选项
-            attr_name = stock_attr_op.s_attr.a_name
-            attr_val = stock_attr_op.s_attr_op.o_name
-            if attr_name in attrs:  # 是否存在这个key
-                temp_arr = attrs[attr_name]     # 取出key对应的值，后续追加新的属性值
-                temp_arr.append(attr_val)
-                attrs[attr_name] = temp_arr
-            else:
-                attrs[attr_name] = [attr_val]
+        for sku_item in skus:
+            # 根据SKU获取到对应的属性
+            stock_attr_ops = sku_item.stockattrop_set.all()
+            for stock_attr_op in stock_attr_ops:    # 遍历获取属性和属性选项
+                attr_name = stock_attr_op.s_attr.a_name
+                attr_val = stock_attr_op.s_attr_op.o_name
+                print(stock_attr_op.s_sku)
+                if attr_name in attrs:  # 是否存在这个key
+                    temp_arr = attrs[attr_name]     # 取出key对应的值，后续追加新的属性值
+                    if not attr_val in temp_arr:    # 判断value是否已存在数组中
+                        temp_arr.append(attr_val)
+                        attrs[attr_name] = temp_arr
+                else:
+                    attrs[attr_name] = [attr_val]
 
-        for key,value in attrs.items:
-            print(key)
-            print(value)
+
+        # 获取当前商品的属性选项
+        current_attrs = []
+        current_stock_attr_ops = sku.stockattrop_set.all()
+        for stock_attr_op in current_stock_attr_ops:
+            # attr_name = stock_attr_op.s_attr.a_name
+            attr_val = stock_attr_op.s_attr_op.o_name
+            current_attrs.append(attr_val)
+
+        # 轮播图
+        banners = spu.goodsdetailbanner_set.all()
+
+        # 当前商品轮播图
+        sku_banner = sku.skubanner_set.first().s_goods_detail
+
+        # 获取产品详情图片
+        goods_details = spu.goodsdetail_set.all()
+
+        # 促销信息
+        discount = spu.p_discount.d_content
 
         arg_dir = {
-            'attrs':attrs
+            'sku':sku,
+            'attrs':attrs,  # 产品所有属性
+            'current_attrs':current_attrs, # 当前商品属性
+            'banners':banners,  # 轮播图
+            'sku_banner':sku_banner,    # 当前商品轮播图
+            'goods_details':goods_details,   # 产品详情
+            'discount':discount,    # 促销信息
         }
 
         return render(request, 'goods-detail.html', arg_dir)

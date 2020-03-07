@@ -58,42 +58,42 @@ $(function(){
 });
 
 
-// 眼镜规格选择
-var cl_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .color .item')
-var cl_currentPage = cl_items.eq(0)
-cl_items.click(function(){
-	// 当前样式处理
-	cl_currentPage.removeClass('select')
-	cl_currentPage = $(cl_items[$(this).index()])
-	cl_currentPage.addClass('select')
-})
-var sz_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size .item')
-var sz_currentPage = sz_items.eq(0)
-sz_items.click(function(){
-	// 当前样式处理
-	sz_currentPage.removeClass('select')
-	sz_currentPage = $(sz_items[$(this).index()])
-	sz_currentPage.addClass('select')
-})
-
-// 数量选择
-var sub_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .sub')
-var add_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .add')
-var num_tx = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num b')
-sub_bt.click(function(){
-	var num = parseInt(num_tx.text())
-	if(num > 0){
-		num_tx.text(--num)
-	}
-	if(num == 0) sub_bt.addClass('disable')
-})
-add_bt.click(function(){
-	var num = parseInt(num_tx.text())
-	num_tx.text(++num) 
-	if(num > 0){
-		sub_bt.removeClass('disable')
-	}
-})
+// // 眼镜规格选择
+// var cl_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .color .item')
+// var cl_currentPage = cl_items.eq(0)
+// cl_items.click(function(){
+// 	// 当前样式处理
+// 	cl_currentPage.removeClass('select')
+// 	cl_currentPage = $(cl_items[$(this).index()])
+// 	cl_currentPage.addClass('select')
+// })
+// var sz_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size .item')
+// var sz_currentPage = sz_items.eq(0)
+// sz_items.click(function(){
+// 	// 当前样式处理
+// 	sz_currentPage.removeClass('select')
+// 	sz_currentPage = $(sz_items[$(this).index()])
+// 	sz_currentPage.addClass('select')
+// })
+//
+// // 数量选择
+// var sub_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .sub')
+// var add_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .add')
+// var num_tx = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num b')
+// sub_bt.click(function(){
+// 	var num = parseInt(num_tx.text())
+// 	if(num > 0){
+// 		num_tx.text(--num)
+// 	}
+// 	if(num == 0) sub_bt.addClass('disable')
+// })
+// add_bt.click(function(){
+// 	var num = parseInt(num_tx.text())
+// 	num_tx.text(++num)
+// 	if(num > 0){
+// 		sub_bt.removeClass('disable')
+// 	}
+// })
 
 
 
