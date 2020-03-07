@@ -114,23 +114,48 @@ class GoodsDetailView(View):    # 商品详情页
         # 根据SKU获取到SPU 【产品】
         spu = sku.s_product
 
-        # 获取对应SPU 下的所有 SKU 【该产品下订单所有商品，要获取其属性】
+        """
+        获取对应SPU 下的所有 属性选项和属性值
+        {'度数': [
+            {'id': 12, 'val': '0度'}, 
+            {'id': 13, 'val': '100'}, 
+            {'id': 17, 'val': '200'}], 
+        '颜色': [
+            {'id': 2, 'val': '黑色'}, 
+            {'id': 1, 'val': '棕色'}, 
+            {'id': 4, 'val': '梦境紫'}]
+        }
+        """
         skus = spu.stock_set.all()
         attrs = {}
         for sku_item in skus:
             # 根据SKU获取到对应的属性
             stock_attr_ops = sku_item.stockattrop_set.all()
-            for stock_attr_op in stock_attr_ops:    # 遍历获取属性和属性选项
+            for stock_attr_op in stock_attr_ops:    # 遍历获取 属性和属性选项
+                # attr_name 颜色
                 attr_name = stock_attr_op.s_attr.a_name
+                # attr_val 黑色
                 attr_val = stock_attr_op.s_attr_op.o_name
-                print(stock_attr_op.s_sku)
-                if attr_name in attrs:  # 是否存在这个key
-                    temp_arr = attrs[attr_name]     # 取出key对应的值，后续追加新的属性值
-                    if not attr_val in temp_arr:    # 判断value是否已存在数组中
-                        temp_arr.append(attr_val)
+                # attr_id 3
+                attr_id = stock_attr_op.s_attr_op.id
+
+
+                if attr_name in attrs:  # 是否存在这个key，已存在即追加
+                    temp_arr = attrs[attr_name]     # 取出key对应的值
+                    temp_dir = {'id': attr_id, 'val': attr_val}
+                    if not temp_dir in temp_arr:    # 判断temp_dir是否已存在数组中，不存在即追加
+                        dir = {'id': attr_id, 'val': attr_val}
+                        temp_arr.append(dir)
                         attrs[attr_name] = temp_arr
-                else:
-                    attrs[attr_name] = [attr_val]
+                else:   # 不存在，即直接添加
+                    dir = {'id': attr_id, 'val': attr_val}
+                    attrs[attr_name] = [dir]
+
+
+        """
+        封装 skus
+        """
+
 
 
         # 获取当前商品的属性选项
@@ -154,7 +179,7 @@ class GoodsDetailView(View):    # 商品详情页
         discount = spu.p_discount.d_content
 
         arg_dir = {
-            'sku':sku,
+            'sku':sku,  # 产品
             'attrs':attrs,  # 产品所有属性
             'current_attrs':current_attrs, # 当前商品属性
             'banners':banners,  # 轮播图

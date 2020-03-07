@@ -130,6 +130,10 @@ class Stock(models.Model):
     s_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
     s_price = models.DecimalField(max_digits=8, decimal_places=2,verbose_name='商品价格', default=0)
 
+    # 库存
+
+    #
+
     class Meta:
         verbose_name = 'SKU管理'
         verbose_name_plural = verbose_name

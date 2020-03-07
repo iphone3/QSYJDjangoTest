@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0031_auto_20200301_1746.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0033_auto_20200302_1935.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0034_auto_20200307_1204.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0035_product_p_brand.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/get_item.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/QSYJDjangoTest/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/utils/django_hack.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/goods-detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/goods-detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/goods-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/goods-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base_tp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_tp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/goods-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/goods-detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -258,7 +246,7 @@
       <workItem from="1582117141082" duration="14000" />
       <workItem from="1582117167336" duration="26401000" />
       <workItem from="1582538163937" duration="51448000" />
-      <workItem from="1582788837457" duration="46959000" />
+      <workItem from="1582788837457" duration="49533000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
