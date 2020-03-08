@@ -5,6 +5,7 @@ from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactL
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from operation.models import UserFavorite
 from users.models import UserProfile
+import copy as cp
 
 
 class IndexView(View):  # 首页
@@ -114,57 +115,88 @@ class GoodsDetailView(View):    # 商品详情页
         # 根据SKU获取到SPU 【产品】
         spu = sku.s_product
 
-        """
-        获取对应SPU 下的所有 属性选项和属性值
-        {'度数': [
-            {'id': 12, 'val': '0度'}, 
-            {'id': 13, 'val': '100'}, 
-            {'id': 17, 'val': '200'}], 
-        '颜色': [
-            {'id': 2, 'val': '黑色'}, 
-            {'id': 1, 'val': '棕色'}, 
-            {'id': 4, 'val': '梦境紫'}]
+        """ 该产品SPU 规格和属性值
+        {
+            '颜色': {
+                'standard_id': 1, 
+                'standard_value': [
+                    {'id': 2, 'name': '黑色'}, 
+                    {'id': 1, 'name': '棕色'}, 
+                    {'id': 4, 'name': '梦境紫'}]
+                }, 
+            '度数': {
+                'standard_id': 2, 
+                'standard_value': [
+                    {'id': 12, 'name': '0度'}, 
+                    {'id': 13, 'name': '100'}, 
+                    {'id': 17, 'name': '200'}]
+                }
         }
         """
         skus = spu.stock_set.all()
-        attrs = {}
+        spu_attrs = {}
         for sku_item in skus:
             # 根据SKU获取到对应的属性
             stock_attr_ops = sku_item.stockattrop_set.all()
-            for stock_attr_op in stock_attr_ops:    # 遍历获取 属性和属性选项
-                # attr_name 颜色
-                attr_name = stock_attr_op.s_attr.a_name
+            for stock_attr_op in stock_attr_ops:  # 遍历获取 属性和属性选项
+                # standard_id 规格ID  3
+                standard_id = stock_attr_op.s_attr.id
+                # standard_id 规格名  颜色
+                standard_name = stock_attr_op.s_attr.a_name
                 # attr_val 黑色
                 attr_val = stock_attr_op.s_attr_op.o_name
-                # attr_id 3
+                # attr_id  3
                 attr_id = stock_attr_op.s_attr_op.id
 
+                if standard_name in spu_attrs:  # 是否存在这个key，已存在即追加
+                    temp_arr = spu_attrs[standard_name]['standard_value']  # 取出key对应的值
+                    temp_dir = {'name': attr_val, 'id':attr_id}
+                    if not temp_dir in temp_arr:  # 判断temp_dir是否已存在数组中，不存在即追加
+                        temp_arr.append(temp_dir)
+                        spu_attrs[standard_name]['standard_value'] = temp_arr
+                else:  # 不存在，即直接添加
+                    dir = {
+                        'standard_id': standard_id,
+                        'standard_value': [
+                            {'name': attr_val, 'id':attr_id}
+                        ]
+                    }
+                    spu_attrs[standard_name] = dir
 
-                if attr_name in attrs:  # 是否存在这个key，已存在即追加
-                    temp_arr = attrs[attr_name]     # 取出key对应的值
-                    temp_dir = {'id': attr_id, 'val': attr_val}
-                    if not temp_dir in temp_arr:    # 判断temp_dir是否已存在数组中，不存在即追加
-                        dir = {'id': attr_id, 'val': attr_val}
-                        temp_arr.append(dir)
-                        attrs[attr_name] = temp_arr
-                else:   # 不存在，即直接添加
-                    dir = {'id': attr_id, 'val': attr_val}
-                    attrs[attr_name] = [dir]
 
 
+        """ 
+        当前选中属性
+        [
+            {
+                'standard_name': '颜色', 
+                'attr_id': 4, 
+                'attr_val': '梦境紫'
+            }, 
+            {
+                'standard_name': '度数', 
+                'attr_id': 12, 
+                'attr_val': '0度'
+            }
+        ]
         """
-        封装 skus
-        """
-
-
-
-        # 获取当前商品的属性选项
         current_attrs = []
         current_stock_attr_ops = sku.stockattrop_set.all()
         for stock_attr_op in current_stock_attr_ops:
-            # attr_name = stock_attr_op.s_attr.a_name
+            # standard_id 规格ID  3
+            standard_id = stock_attr_op.s_attr.id
+            # standard_id 规格名  颜色
+            standard_name = stock_attr_op.s_attr.a_name
+            # attr_val 黑色
             attr_val = stock_attr_op.s_attr_op.o_name
-            current_attrs.append(attr_val)
+            # attr_id  3
+            attr_id = stock_attr_op.s_attr_op.id
+            dir = {
+                'standard_name': standard_name,
+                'attr_id':attr_id,
+                'attr_val':attr_val
+            }
+            current_attrs.append(dir)
 
         # 轮播图
         banners = spu.goodsdetailbanner_set.all()
@@ -180,7 +212,7 @@ class GoodsDetailView(View):    # 商品详情页
 
         arg_dir = {
             'sku':sku,  # 产品
-            'attrs':attrs,  # 产品所有属性
+            'spu_attrs':spu_attrs,  # 产品所有属性
             'current_attrs':current_attrs, # 当前商品属性
             'banners':banners,  # 轮播图
             'sku_banner':sku_banner,    # 当前商品轮播图

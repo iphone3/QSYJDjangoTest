@@ -73,20 +73,20 @@
 						<div class="dd">0.09kg</div>
 					</div>
 					<div class="choose-attrs">
-                        {% for key in attrs %}
+                        {% for key in spu_attrs %}
                             <div class="size clearfix">
-                                <div class="dt">
+                                <div class="dt" data-standard="{{ spu_attrs|get_item:key|get_item:'standard_id' }}">
                                     选择{{ key }}
                                 </div>
                                 <div class="dd">
-                                    {% for attr_value in attrs|get_item:key %}
-                                        <div class="item
+                                    {% for dir in spu_attrs|get_item:key|get_item:'standard_value' %}
+                                        <div data-id="{{ dir.id }}" class="item
                                             {% for c_attr in current_attrs %}
-                                                {% if c_attr == attr_value %}
+                                                {% if c_attr|get_item:'standard_name' == key and c_attr|get_item:'attr_id' == dir.id %}
                                                     select
                                                 {% endif %}
                                             {% endfor %}
-                                        ">{{ attr_value }}</div>
+                                        ">{{ dir.name }}</div>
                                     {% endfor %}
                                 </div>
                             </div>

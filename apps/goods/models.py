@@ -191,7 +191,7 @@ class GoodsDetailBanner(models.Model):
 # SKU轮播图
 class SkuBanner(models.Model):
     s_sku = models.ForeignKey(Stock, on_delete=models.CASCADE, verbose_name='SKU ID')
-    s_goods_detail = models.ForeignKey(GoodsDetailBanner, on_delete=models.CASCADE, verbose_name='商品详情轮播图ID')
+    s_goods_detail = models.ForeignKey(GoodsDetailBanner, on_delete=models.CASCADE, verbose_name='商品详情轮播图ID', default=1, null=True, blank=True)
 
     class Meta:
         verbose_name = 'SKU轮播图'
