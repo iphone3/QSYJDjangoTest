@@ -66,6 +66,13 @@ class ContactLensBanner(models.Model):
 
 # 彩瞳 - 商品
 class ContactLensGoods(models.Model):
+    """
+    后续此处需要关联到商品详情表
+    此处商品是用于界面显示，而跳转后的是详情页
+    数据添加时，先详情后商品展示
+
+    【只需要goods_id，goods_name和goods_price不需要】
+    """
     goods_id = models.IntegerField(verbose_name='商品详情ID', unique=True)
     goods_name = models.CharField(max_length=255, verbose_name='商品名称', default='')
     goods_price = models.DecimalField(max_digits=8, decimal_places=2, verbose_name='商品价格', default=0)
@@ -206,60 +213,3 @@ class GoodsDetail(models.Model):
     class Meta:
         verbose_name = '商品详情图片'
         verbose_name_plural = verbose_name
-
-
-
-""" 该产品SPU 规格和属性值
-[
-    {'standard_name': '1颜色', 'attr_val': '黑色', 'standard_id': 1, 'attr_id': 2}, 
-    {'standard_name': '2度数', 'attr_val': '0度', 'standard_id': 2, 'attr_id': 12}, 
-    {'standard_name': '1颜色', 'attr_val': '棕色', 'standard_id': 1, 'attr_id': 1}, 
-    {'standard_name': '2度数', 'attr_val': '100', 'standard_id': 2, 'attr_id': 13}, 
-    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
-    {'standard_name': '2度数', 'attr_val': '0度', 'standard_id': 2, 'attr_id': 12}, 
-    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
-    {'standard_name': '2度数', 'attr_val': '100', 'standard_id': 2, 'attr_id': 13}, 
-    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
-    {'standard_name': '2度数', 'attr_val': '200', 'standard_id': 2, 'attr_id': 17}
-]
-
-[
-    {'attr_id': 2, 'attr_val': '黑色', 'standard_id': 1, 'standard_name': '1颜色'}, 
-    {'attr_id': 12, 'attr_val': '0度', 'standard_id': 2, 'standard_name': '2度数'}, 
-    {'attr_id': 1, 'attr_val': '棕色', 'standard_id': 1, 'standard_name': '1颜色'}, 
-    {'attr_id': 13, 'attr_val': '100', 'standard_id': 2, 'standard_name': '2度数'}, 
-    {'attr_id': 4, 'attr_val': '梦境紫', 'standard_id': 1, 'standard_name': '1颜色'}, 
-    {'attr_id': 17, 'attr_val': '200', 'standard_id': 2, 'standard_name': '2度数'}
-]
-[
-    {
-        'standard_name': '颜色',
-        'standard_id': 1,
-        'standard_value': [
-            {'id': 2, 'name': '黑色'}, 
-            {'id': 1, 'name': '棕色'}, 
-            {'id': 4, 'name': '梦境紫'}
-        ]
-    },
-    {
-        'standard_name': '度数',
-        'standard_id': 2,
-        'standard_value': [
-            {'id': 12, 'name': '0度'}, 
-            {'id': 13, 'name': '100'}, 
-            {'id': 17, 'name': '200'}
-        ]
-    }
-]
-
-[
-    {
-        'standard_name': '1颜色', 
-        'standard_id': 1, 
-        'standard_value': [
-            {'id': 2, 'name': '黑色'}, 
-            {'id': 1, 'name': '棕色'}, 
-            {'id': 4, 'name': '梦境紫'}]
-        }, 
-            {'standard_name': '2度数', 'standard_id': 2, 'standard_value': [{'id': 12, 'name': '0度'}, {'id': 13, 'name': '100'}, {'id': 17, 'name': '200'}]}]
-"""

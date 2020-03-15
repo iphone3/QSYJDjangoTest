@@ -5,8 +5,6 @@ from django.views import View
 from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, Stock, StockAttrOp
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from operation.models import UserFavorite
-from users.models import UserProfile
-import copy as cp
 
 
 class IndexView(View):  # 首页
@@ -167,8 +165,36 @@ class GoodsDetailView(View):    # 商品详情页
             }
         ]
         """
+        """
+        [
+            {'standard_id': 1, 'standard_name': '颜色', 'attr_id': 2, 'attr_val': '黑色'}, 
+            {'standard_id': 2, 'standard_name': '度数', 'attr_id': 12, 'attr_val': '0度'}, 
+            {'standard_id': 1, 'standard_name': '颜色', 'attr_id': 1, 'attr_val': '棕色'}, 
+            {'standard_id': 2, 'standard_name': '度数', 'attr_id': 13, 'attr_val': '100'}, 
+            {'standard_id': 1, 'standard_name': '颜色', 'attr_id': 4, 'attr_val': '梦境紫'},
+            {'standard_id': 2, 'standard_name': '度数', 'attr_id': 12, 'attr_val': '0度'}, 
+            {'standard_id': 1, 'standard_name': '颜色', 'attr_id': 4, 'attr_val': '梦境紫'}, 
+            {'standard_id': 2, 'standard_name': '度数', 'attr_id': 13, 'attr_val': '100'}, 
+            {'standard_id': 1, 'standard_name': '颜色', 'attr_id': 4, 'attr_val': '梦境紫'}, 
+            {'standard_id': 2, 'standard_name': '度数', 'attr_id': 17, 'attr_val': '200'}
+        ]
+        
+        [
+            {'standard_id': 1, 'sku_id': 1000001, 'attr_id': 2}, 
+            {'standard_id': 2, 'sku_id': 1000001, 'attr_id': 12}, 
+            {'standard_id': 1, 'sku_id': 1000002, 'attr_id': 1}, 
+            {'standard_id': 2, 'sku_id': 1000002, 'attr_id': 13}, 
+            {'standard_id': 1, 'sku_id': 1000003, 'attr_id': 4}, 
+            {'standard_id': 2, 'sku_id': 1000003, 'attr_id': 12}, 
+            {'standard_id': 1, 'sku_id': 1000004, 'attr_id': 4}, 
+            {'standard_id': 2, 'sku_id': 1000004, 'attr_id': 13}, 
+            {'standard_id': 1, 'sku_id': 1000005, 'attr_id': 4},    
+            {'standard_id': 2, 'sku_id': 1000005, 'attr_id': 17}
+        ]
+        """
         skus = spu.stock_set.all()
-        spu_attrs = []
+        spu_attrs = []  # 所有规格和属性值
+        skuids =[]  # 所有规格、属性值对应的sku_id
         for sku_item in skus:
             # 根据SKU获取到对应的属性
             stock_attr_ops = sku_item.stockattrop_set.all()
@@ -184,12 +210,21 @@ class GoodsDetailView(View):    # 商品详情页
                 attr_val = stock_attr_op.s_attr_op.o_name
                 # attr_id  3
                 attr_id = stock_attr_op.s_attr_op.id
+                # sku_id
+                sku_id = stock_attr_op.s_sku.s_id
 
                 spu_attrs.append({
                     'standard_id':standard_id,
                     'standard_name': standard_name,
                     'attr_val':attr_val,
-                    'attr_id':attr_id
+                    'attr_id':attr_id,
+                    'sku_id':sku_id
+                })
+
+                skuids.append({
+                    'sku_id': sku_id,
+                    'standard_id': standard_id,
+                    'attr_id':attr_id,
                 })
 
         # 数据处理 -- 去重
@@ -264,14 +299,19 @@ class GoodsDetailView(View):    # 商品详情页
         # 促销信息
         discount = spu.p_discount.d_content
 
+        # 请求地址    先拆分，后取值，最后拼装  /goods/detail/
+        path = '/' + '/'.join(request.path.split('/')[1:3]) + '/'
+
         arg_dir = {
             'sku':sku,  # 产品
             'spu_attrs':spu_attrs,  # 产品所有属性
             'current_attrs':current_attrs, # 当前商品属性
+            'skuids':skuids,    # 所有规格、属性值对应的sku_id
             'banners':banners,  # 轮播图
             'sku_banner':sku_banner,    # 当前商品轮播图
             'goods_details':goods_details,   # 产品详情
             'discount':discount,    # 促销信息
+            'path': path,   # 请求的完整路径
         }
 
         return render(request, 'goods-detail.html', arg_dir)

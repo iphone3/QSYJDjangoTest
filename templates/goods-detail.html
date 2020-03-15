@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="dd">
                                     {% for dir in spu_attr|get_item:'standard_value' %}
-                                        <div data-href="{% url 'goods:goods_detail' 0 %}" data-id="{{ dir.id }}" class="item
+                                        <div data-href="{{ path }}" data-id="{{ dir.id }}" class="item
                                             {% for c_attr in current_attrs %}
                                                 {% if c_attr|get_item:'standard_name' == spu_attr|get_item:'standard_name' and c_attr|get_item:'attr_id' == dir.id %}
                                                     select
@@ -682,4 +682,73 @@
 				</div>
 			</div>
 		</div>
+
+    <script>
+        $(function() {
+            var sz_items1 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:first .item')
+            var sz_currentPage1 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:first .item.select')
+            var sz_items2 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:last .item')
+            var sz_currentPage2 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:last .item.select')
+            sz_items1.click(function () {
+                // 当前样式处理
+                sz_currentPage1.removeClass('select')
+                sz_currentPage1 = $(sz_items1[$(this).index()])
+                sz_currentPage1.addClass('select')
+
+                skuid = computter_skuid()
+                window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+            })
+            sz_items2.click(function () {
+                // 当前样式处理
+                sz_currentPage2.removeClass('select')
+                sz_currentPage2 = $(sz_items2[$(this).index()])
+                sz_currentPage2.addClass('select')
+
+                skuid = computter_skuid()
+                window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+            })
+
+            // 计算skuid
+            function computter_skuid() {
+                standard_id1 = sz_items1.parent().prev().attr('data-standard')
+                attr_id1 = sz_currentPage1.attr('data-id')
+                standard_id2 = sz_items2.parent().prev().attr('data-standard')
+                attr_id2 = sz_currentPage2.attr('data-id')
+
+
+                // 遍历选项
+                {% for skuid1 in skuids %}
+                    if ({{ skuid1.standard_id }} == standard_id1 && {{ skuid1.attr_id }} == attr_id1) {
+                        sku_id1 = {{ skuid1.sku_id }}
+
+                        {% for skuid2 in skuids %}
+                            if ({{ skuid2.standard_id }} == standard_id2 && {{ skuid2.attr_id }} == attr_id2) {
+                                sku_id2 = {{ skuid2.sku_id }}
+                                if (sku_id1 == sku_id2) {    // 选项存在
+                                    return sku_id2
+                                }
+                            }
+                        {% endfor %}
+                    }
+                {% endfor %}
+            }
+
+            // 设置cookie操作
+            function set_attr_cookies() {
+                var temp = ''
+                standard_id1 = sz_items1.parent().prev().attr('data-standard')
+                attr_id1 = sz_currentPage1.attr('data-id')
+                temp = standard_id1 + '_' + attr_id1 + '_'
+
+                standard_id2 = sz_items2.parent().prev().attr('data-standard')
+                attr_id2 = sz_currentPage2.attr('data-id')
+                temp += standard_id2 + '_' + attr_id2
+                // 设置cookie，传入产品选择的属性值
+                $.cookie('select_attr', temp, {path: '/'});
+            }
+        })
+
+
+
+    </script>
 {% endblock %}
