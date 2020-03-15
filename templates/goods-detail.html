@@ -732,20 +732,6 @@
                     }
                 {% endfor %}
             }
-
-            // 设置cookie操作
-            function set_attr_cookies() {
-                var temp = ''
-                standard_id1 = sz_items1.parent().prev().attr('data-standard')
-                attr_id1 = sz_currentPage1.attr('data-id')
-                temp = standard_id1 + '_' + attr_id1 + '_'
-
-                standard_id2 = sz_items2.parent().prev().attr('data-standard')
-                attr_id2 = sz_currentPage2.attr('data-id')
-                temp += standard_id2 + '_' + attr_id2
-                // 设置cookie，传入产品选择的属性值
-                $.cookie('select_attr', temp, {path: '/'});
-            }
         })
 
 
