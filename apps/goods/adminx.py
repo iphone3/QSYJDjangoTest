@@ -63,8 +63,8 @@ xadmin.site.register(Stock, StockAdmin)
 
 
 class AttributeAdmin(object):   # 商品属性
-    list_display = ['a_name', 'a_assort']
-    list_filter = ['a_name', 'a_assort']
+    list_display = ['a_name', 'a_assort', 'a_index']
+    list_filter = ['a_name', 'a_assort', 'a_index']
     search_fields = ['a_name', 'a_assort']
 xadmin.site.register(Attribute, AttributeAdmin)
 

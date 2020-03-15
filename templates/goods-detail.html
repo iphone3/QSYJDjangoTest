@@ -13,6 +13,8 @@
 {% block custom_js %}
     <!-- 预览 -->
 	<script src="{% static 'js/jqZoome.js' %}" type="text/javascript" charset="utf-8"></script>
+    <!-- jq_cookies -->
+    <script src="{% static 'js/jquery.cookie.js' %}" type="text/javascript" charset="utf-8"></script>
     <script src="{% static 'js/goods-detail.js' %}" type="text/javascript" charset="utf-8"></script>
 {% endblock %}
 
@@ -73,16 +75,16 @@
 						<div class="dd">0.09kg</div>
 					</div>
 					<div class="choose-attrs">
-                        {% for key in spu_attrs %}
+                        {% for spu_attr in spu_attrs %}
                             <div class="size clearfix">
-                                <div class="dt" data-standard="{{ spu_attrs|get_item:key|get_item:'standard_id' }}">
-                                    选择{{ key }}
+                                <div class="dt" data-standard="{{ spu_attr|get_item:'standard_id' }}">
+                                    选择{{ spu_attr|get_item:'standard_name' }}
                                 </div>
                                 <div class="dd">
-                                    {% for dir in spu_attrs|get_item:key|get_item:'standard_value' %}
-                                        <div data-id="{{ dir.id }}" class="item
+                                    {% for dir in spu_attr|get_item:'standard_value' %}
+                                        <div data-href="{% url 'goods:goods_detail' 0 %}" data-id="{{ dir.id }}" class="item
                                             {% for c_attr in current_attrs %}
-                                                {% if c_attr|get_item:'standard_name' == key and c_attr|get_item:'attr_id' == dir.id %}
+                                                {% if c_attr|get_item:'standard_name' == spu_attr|get_item:'standard_name' and c_attr|get_item:'attr_id' == dir.id %}
                                                     select
                                                 {% endif %}
                                             {% endfor %}

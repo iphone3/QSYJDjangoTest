@@ -58,42 +58,62 @@ $(function(){
 });
 
 
-// // 眼镜规格选择
-// var cl_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .color .item')
-// var cl_currentPage = cl_items.eq(0)
-// cl_items.click(function(){
-// 	// 当前样式处理
-// 	cl_currentPage.removeClass('select')
-// 	cl_currentPage = $(cl_items[$(this).index()])
-// 	cl_currentPage.addClass('select')
-// })
-// var sz_items = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size .item')
-// var sz_currentPage = sz_items.eq(0)
-// sz_items.click(function(){
-// 	// 当前样式处理
-// 	sz_currentPage.removeClass('select')
-// 	sz_currentPage = $(sz_items[$(this).index()])
-// 	sz_currentPage.addClass('select')
-// })
-//
-// // 数量选择
-// var sub_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .sub')
-// var add_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .add')
-// var num_tx = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num b')
-// sub_bt.click(function(){
-// 	var num = parseInt(num_tx.text())
-// 	if(num > 0){
-// 		num_tx.text(--num)
-// 	}
-// 	if(num == 0) sub_bt.addClass('disable')
-// })
-// add_bt.click(function(){
-// 	var num = parseInt(num_tx.text())
-// 	num_tx.text(++num)
-// 	if(num > 0){
-// 		sub_bt.removeClass('disable')
-// 	}
-// })
+// 眼镜规格选择
+var sz_items1 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:first .item')
+var sz_currentPage1 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:first .item.select')
+var sz_items2 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:last .item')
+var sz_currentPage2 = $('.product-intro > .itemInfo-wrap > .choose-attrs > .size:last .item.select')
+sz_items1.click(function(){
+	// 当前样式处理
+	sz_currentPage1.removeClass('select')
+	sz_currentPage1 = $(sz_items1[$(this).index()])
+	sz_currentPage1.addClass('select')
+
+	set_attr_cookies()
+	window.location.href = sz_currentPage1.attr('data-href')
+})
+sz_items2.click(function(){
+	// 当前样式处理
+	sz_currentPage2.removeClass('select')
+	sz_currentPage2 = $(sz_items2[$(this).index()])
+	sz_currentPage2.addClass('select')
+
+	set_attr_cookies()
+	window.location.href = sz_currentPage1.attr('data-href')
+})
+// 设置cookie操作
+function set_attr_cookies(){
+	var temp = ''
+	standard_id1 = sz_items1.parent().prev().attr('data-standard')
+	attr_id1 = sz_currentPage1.attr('data-id')
+	temp = standard_id1 + '_' + attr_id1 + '_'
+
+	standard_id2 = sz_items2.parent().prev().attr('data-standard')
+	attr_id2 = sz_currentPage2.attr('data-id')
+	temp += standard_id2 + '_' + attr_id2
+	// 设置cookie，传入产品选择的属性值
+	$.cookie('select_attr', temp, { path: '/' });
+}
+
+
+// 数量选择
+var sub_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .sub')
+var add_bt = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num .add')
+var num_tx = $('.product-intro > .itemInfo-wrap > .choose-attrs > .num b')
+sub_bt.click(function(){
+	var num = parseInt(num_tx.text())
+	if(num > 0){
+		num_tx.text(--num)
+	}
+	if(num == 0) sub_bt.addClass('disable')
+})
+add_bt.click(function(){
+	var num = parseInt(num_tx.text())
+	num_tx.text(++num)
+	if(num > 0){
+		sub_bt.removeClass('disable')
+	}
+})
 
 
 
@@ -130,5 +150,4 @@ assess_tabs.click(function(){
 	assess_tab_curr.addClass('active')
 	assess_item_curr.show()
 })
-
 

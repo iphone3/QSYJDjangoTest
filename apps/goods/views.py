@@ -1,7 +1,8 @@
+from collections import OrderedDict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, Stock
+from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, Stock, StockAttrOp
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from operation.models import UserFavorite
 from users.models import UserProfile
@@ -109,60 +110,113 @@ class FavoriteView(View):   # 收藏
 
 class GoodsDetailView(View):    # 商品详情页
     def get(self, request, sku_id):
-        # 获取到具体商品的SKU  【具体的商品】
-        sku = Stock.objects.get(s_id=sku_id)
+        sku = None
+        if sku_id != '0':     # 具体商品
+            # 获取到具体商品的SKU  【具体的商品】
+            sku = Stock.objects.get(s_id=sku_id)
+        elif sku_id == '0':   # 选择某个商品
+            # 获取产品选择属性
+            select_attrs = request.COOKIES['select_attr'].split('_')
+            print(select_attrs)
+
+            # 获取 SKU属性选项
+            stock_attr_op1 = StockAttrOp.objects.filter(s_attr=int(select_attrs[0]), s_attr_op=int(select_attrs[1]))
+            stock_attr_op2 = StockAttrOp.objects.filter(s_attr=int(select_attrs[2]), s_attr_op=int(select_attrs[3]))
+
+            # 获取的SKU可能是多个
+            temp = 1    # 控制是否有找到商品
+            for stock_attr_op1_item in stock_attr_op1:
+                for stock_attr_op2_item in stock_attr_op2:
+                    if stock_attr_op1_item.s_sku == stock_attr_op2_item.s_sku:  # 能找到对应的商品
+                        sku = stock_attr_op1_item.s_sku
+                        temp = 1
+                        break
+                    else:
+                        temp = 0
+
+            if temp == 0:   # 没有找到对应的商品
+                return render(request, 'goods-detail.html')
+
+
+            # return render(request, 'goods-detail.html')
+
+
 
         # 根据SKU获取到SPU 【产品】
         spu = sku.s_product
 
         """ 该产品SPU 规格和属性值
-        {
-            '颜色': {
-                'standard_id': 1, 
+        [
+            {
+                'standard_name': '颜色',
+                'standard_id': 1,
                 'standard_value': [
                     {'id': 2, 'name': '黑色'}, 
                     {'id': 1, 'name': '棕色'}, 
-                    {'id': 4, 'name': '梦境紫'}]
-                }, 
-            '度数': {
-                'standard_id': 2, 
+                    {'id': 4, 'name': '梦境紫'}
+                ]
+            },
+            {
+                'standard_name': '度数',
+                'standard_id': 2,
                 'standard_value': [
                     {'id': 12, 'name': '0度'}, 
                     {'id': 13, 'name': '100'}, 
-                    {'id': 17, 'name': '200'}]
-                }
-        }
+                    {'id': 17, 'name': '200'}
+                ]
+            }
+        ]
         """
         skus = spu.stock_set.all()
-        spu_attrs = {}
+        spu_attrs = []
         for sku_item in skus:
             # 根据SKU获取到对应的属性
             stock_attr_ops = sku_item.stockattrop_set.all()
             for stock_attr_op in stock_attr_ops:  # 遍历获取 属性和属性选项
+                # 规格下标
+                standard_index = stock_attr_op.s_attr.a_index
                 # standard_id 规格ID  3
                 standard_id = stock_attr_op.s_attr.id
                 # standard_id 规格名  颜色
+                # standard_name = str(standard_index) + stock_attr_op.s_attr.a_name
                 standard_name = stock_attr_op.s_attr.a_name
                 # attr_val 黑色
                 attr_val = stock_attr_op.s_attr_op.o_name
                 # attr_id  3
                 attr_id = stock_attr_op.s_attr_op.id
 
-                if standard_name in spu_attrs:  # 是否存在这个key，已存在即追加
-                    temp_arr = spu_attrs[standard_name]['standard_value']  # 取出key对应的值
-                    temp_dir = {'name': attr_val, 'id':attr_id}
-                    if not temp_dir in temp_arr:  # 判断temp_dir是否已存在数组中，不存在即追加
-                        temp_arr.append(temp_dir)
-                        spu_attrs[standard_name]['standard_value'] = temp_arr
-                else:  # 不存在，即直接添加
-                    dir = {
-                        'standard_id': standard_id,
-                        'standard_value': [
-                            {'name': attr_val, 'id':attr_id}
-                        ]
-                    }
-                    spu_attrs[standard_name] = dir
+                spu_attrs.append({
+                    'standard_id':standard_id,
+                    'standard_name': standard_name,
+                    'attr_val':attr_val,
+                    'attr_id':attr_id
+                })
 
+        # 数据处理 -- 去重
+        b = OrderedDict()
+        for item in spu_attrs:
+            b.setdefault(item['attr_id'], {**item, })
+        spu_attrs = list(b.values())
+
+        # 数据处理 -- 序列化
+        wrapper_dir = []
+        for item in spu_attrs:  # 遍历初始化好基本结构
+            dir = {
+                'standard_name': item['standard_name'],
+                'standard_id': item['standard_id'],
+                'standard_value': []
+            }
+            if dir not in wrapper_dir:
+                wrapper_dir.append(dir)
+
+        for item in wrapper_dir:    # 填充standard_value数值
+            for spu_attr in spu_attrs:
+                if spu_attr['standard_name'] == item['standard_name']:
+                    dir = {'id': spu_attr['attr_id'], 'name': spu_attr['attr_val']}
+                    item['standard_value'].append(dir)
+
+        # 数据处理完成，重新赋值
+        spu_attrs = wrapper_dir
 
 
         """ 

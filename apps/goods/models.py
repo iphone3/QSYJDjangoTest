@@ -130,7 +130,7 @@ class Stock(models.Model):
     s_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
     s_price = models.DecimalField(max_digits=8, decimal_places=2,verbose_name='商品价格', default=0)
 
-    # 库存
+    # 库存  用库存在处理产品属性选择，如果没有库存即不显示假如购物车
 
     #
 
@@ -146,6 +146,7 @@ class Stock(models.Model):
 class Attribute(models.Model):
     a_name = models.CharField(max_length=100, default='', verbose_name='商品属性名')
     a_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
+    a_index = models.IntegerField(default=1, verbose_name='规格下标')
 
     class Meta:
         verbose_name = '属性管理'
@@ -205,3 +206,60 @@ class GoodsDetail(models.Model):
     class Meta:
         verbose_name = '商品详情图片'
         verbose_name_plural = verbose_name
+
+
+
+""" 该产品SPU 规格和属性值
+[
+    {'standard_name': '1颜色', 'attr_val': '黑色', 'standard_id': 1, 'attr_id': 2}, 
+    {'standard_name': '2度数', 'attr_val': '0度', 'standard_id': 2, 'attr_id': 12}, 
+    {'standard_name': '1颜色', 'attr_val': '棕色', 'standard_id': 1, 'attr_id': 1}, 
+    {'standard_name': '2度数', 'attr_val': '100', 'standard_id': 2, 'attr_id': 13}, 
+    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
+    {'standard_name': '2度数', 'attr_val': '0度', 'standard_id': 2, 'attr_id': 12}, 
+    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
+    {'standard_name': '2度数', 'attr_val': '100', 'standard_id': 2, 'attr_id': 13}, 
+    {'standard_name': '1颜色', 'attr_val': '梦境紫', 'standard_id': 1, 'attr_id': 4}, 
+    {'standard_name': '2度数', 'attr_val': '200', 'standard_id': 2, 'attr_id': 17}
+]
+
+[
+    {'attr_id': 2, 'attr_val': '黑色', 'standard_id': 1, 'standard_name': '1颜色'}, 
+    {'attr_id': 12, 'attr_val': '0度', 'standard_id': 2, 'standard_name': '2度数'}, 
+    {'attr_id': 1, 'attr_val': '棕色', 'standard_id': 1, 'standard_name': '1颜色'}, 
+    {'attr_id': 13, 'attr_val': '100', 'standard_id': 2, 'standard_name': '2度数'}, 
+    {'attr_id': 4, 'attr_val': '梦境紫', 'standard_id': 1, 'standard_name': '1颜色'}, 
+    {'attr_id': 17, 'attr_val': '200', 'standard_id': 2, 'standard_name': '2度数'}
+]
+[
+    {
+        'standard_name': '颜色',
+        'standard_id': 1,
+        'standard_value': [
+            {'id': 2, 'name': '黑色'}, 
+            {'id': 1, 'name': '棕色'}, 
+            {'id': 4, 'name': '梦境紫'}
+        ]
+    },
+    {
+        'standard_name': '度数',
+        'standard_id': 2,
+        'standard_value': [
+            {'id': 12, 'name': '0度'}, 
+            {'id': 13, 'name': '100'}, 
+            {'id': 17, 'name': '200'}
+        ]
+    }
+]
+
+[
+    {
+        'standard_name': '1颜色', 
+        'standard_id': 1, 
+        'standard_value': [
+            {'id': 2, 'name': '黑色'}, 
+            {'id': 1, 'name': '棕色'}, 
+            {'id': 4, 'name': '梦境紫'}]
+        }, 
+            {'standard_name': '2度数', 'standard_id': 2, 'standard_value': [{'id': 12, 'name': '0度'}, {'id': 13, 'name': '100'}, {'id': 17, 'name': '200'}]}]
+"""

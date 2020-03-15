@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
-      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0036_auto_20200308_2006.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/goods/migrations/0037_attribute_a_index.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/jquery.cookie.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/goods-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/goods-detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/goods-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/goods-detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,7 +84,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="debugger.stepping" />
   </component>
@@ -90,11 +93,11 @@
       <recent name="$PROJECT_DIR$/apps" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/media/image" />
       <recent name="$PROJECT_DIR$/static/img" />
       <recent name="$PROJECT_DIR$/static" />
-      <recent name="$PROJECT_DIR$/static/image" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -248,7 +251,7 @@
       <workItem from="1582117141082" duration="14000" />
       <workItem from="1582117167336" duration="26401000" />
       <workItem from="1582538163937" duration="51448000" />
-      <workItem from="1582788837457" duration="60226000" />
+      <workItem from="1582788837457" duration="79141000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
