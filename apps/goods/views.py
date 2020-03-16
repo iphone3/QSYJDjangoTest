@@ -2,7 +2,7 @@ from collections import OrderedDict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
-from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, Stock, StockAttrOp
+from goods.models import HotSell, NurseGoods, Brand, ContactLensBanner, ContactLensGoods, SKUAttrVal, SKU
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 from operation.models import UserFavorite
 
@@ -108,10 +108,10 @@ class FavoriteView(View):   # 收藏
 
 class GoodsDetailView(View):    # 商品详情页
     def get(self, request, sku_id):
-        sku = Stock.objects.get(s_id=sku_id)
+        sku = SKU.objects.get(s_id=sku_id)
 
         # 根据SKU获取到SPU 【产品】
-        spu = sku.s_product
+        spu = sku.s_spu
 
         """ 该产品SPU 规格和属性值
         [
@@ -162,26 +162,23 @@ class GoodsDetailView(View):    # 商品详情页
             {'standard_id': 2, 'sku_id': 1000005, 'attr_id': 17}
         ]
         """
-        skus = spu.stock_set.all()
+        skus = spu.sku_set.all()
         spu_attrs = []  # 所有规格和属性值
         skuids =[]  # 所有规格、属性值对应的sku_id
         for sku_item in skus:
             # 根据SKU获取到对应的属性
-            stock_attr_ops = sku_item.stockattrop_set.all()
-            for stock_attr_op in stock_attr_ops:  # 遍历获取 属性和属性选项
-                # 规格下标
-                standard_index = stock_attr_op.s_attr.a_index
+            sku_attr_vals = sku_item.skuattrval_set.all()
+            for sku_attr_val in sku_attr_vals:  # 遍历获取 属性和属性选项
                 # standard_id 规格ID  3
-                standard_id = stock_attr_op.s_attr.id
-                # standard_id 规格名  颜色
-                # standard_name = str(standard_index) + stock_attr_op.s_attr.a_name
-                standard_name = stock_attr_op.s_attr.a_name
+                standard_id = sku_attr_val.s_standard.id
+                # standard_name 颜色
+                standard_name = sku_attr_val.s_standard.a_name
                 # attr_val 黑色
-                attr_val = stock_attr_op.s_attr_op.o_name
+                attr_val = sku_attr_val.s_attr_val.o_val
                 # attr_id  3
-                attr_id = stock_attr_op.s_attr_op.id
+                attr_id = sku_attr_val.s_attr_val.id
                 # sku_id
-                sku_id = stock_attr_op.s_sku.s_id
+                sku_id = sku_attr_val.s_sku.s_id
 
                 spu_attrs.append({
                     'standard_id':standard_id,
@@ -240,16 +237,17 @@ class GoodsDetailView(View):    # 商品详情页
         ]
         """
         current_attrs = []
-        current_stock_attr_ops = sku.stockattrop_set.all()
-        for stock_attr_op in current_stock_attr_ops:
+        current_sku_attr_ops = sku.skuattrval_set.all()
+
+        for current_sku_attr_op in current_sku_attr_ops:
             # standard_id 规格ID  3
-            standard_id = stock_attr_op.s_attr.id
+            standard_id = current_sku_attr_op.s_standard.id
             # standard_id 规格名  颜色
-            standard_name = stock_attr_op.s_attr.a_name
+            standard_name = current_sku_attr_op.s_standard.a_name
             # attr_val 黑色
-            attr_val = stock_attr_op.s_attr_op.o_name
+            attr_val = current_sku_attr_op.s_attr_val.o_val
             # attr_id  3
-            attr_id = stock_attr_op.s_attr_op.id
+            attr_id = current_sku_attr_op.s_attr_val.id
             dir = {
                 'standard_name': standard_name,
                 'attr_id':attr_id,
@@ -261,7 +259,11 @@ class GoodsDetailView(View):    # 商品详情页
         banners = spu.goodsdetailbanner_set.all()
 
         # 当前商品轮播图
-        sku_banner = sku.skubanner_set.first().s_goods_detail
+        sku_banners = sku.skubanner_set.all()
+        if sku_banners.count(): # 存在
+            sku_banner = sku_banners.first().s_goods_detail
+        else:   # 不存在
+            sku_banner = spu.goodsdetailbanner_set.first()
 
         # 获取产品详情图片
         goods_details = spu.goodsdetail_set.all()

@@ -1,6 +1,6 @@
 import xadmin
-from goods.models import HotSell, Brand, NurseGoods, ContactLensBanner, ContactLensGoods, Assort, Product, Stock, \
-    Attribute, AttributeOption, StockAttrOp, GoodsDetailBanner, SkuBanner, GoodsDetail, Discount
+from goods.models import HotSell, Brand, NurseGoods, ContactLensBanner, ContactLensGoods, Assort,  \
+    Standard, AttributeValue, SKUAttrVal, GoodsDetailBanner, SkuBanner, GoodsDetail, Discount, SPU, SKU
 
 
 class BrandAdmin(object):   # 护理用品 - 品牌
@@ -34,6 +34,8 @@ class ContactLensGoodsAdmin(object):    # 彩瞳 - 商品
 xadmin.site.register(ContactLensGoods, ContactLensGoodsAdmin)
 
 
+
+
 class AssortAdmin(object): # 商品分类
     list_display = ['a_name']
     list_filter = ['a_name']
@@ -48,39 +50,39 @@ class DiscountAdmin(object):    # 促销
 xadmin.site.register(Discount, DiscountAdmin)
 
 
-class ProductAdmin(object): # SPU 标准产品单位
+class SPUAdmin(object): # SPU 标准产品单位
     list_display = ['p_name', 'p_assort', 'p_brand']
     list_filter = ['p_name', 'p_assort', 'p_brand']
     search_fields = ['p_name', 'p_assort']
-xadmin.site.register(Product, ProductAdmin)
+xadmin.site.register(SPU, SPUAdmin)
 
 
-class StockAdmin(object):   # SKU 库存量单位
-    list_display = ['s_name', 's_product', 's_price','s_id']
-    list_filter = ['s_name', 's_product']
-    search_fields = ['s_name', 's_product']
-xadmin.site.register(Stock, StockAdmin)
+class SKUAdmin(object):   # SKU 库存量单位
+    list_display = ['s_name', 's_spu', 's_price','s_id', 's_stock']
+    list_filter = ['s_name', 's_spu', 's_stock', 's_price']
+    search_fields = ['s_name', 's_spu']
+xadmin.site.register(SKU, SKUAdmin)
 
 
-class AttributeAdmin(object):   # 商品属性
-    list_display = ['a_name', 'a_assort', 'a_index']
-    list_filter = ['a_name', 'a_assort', 'a_index']
+class StandardAdmin(object):   # 规格 【颜色】
+    list_display = ['a_name', 'a_assort']
+    list_filter = ['a_name', 'a_assort']
     search_fields = ['a_name', 'a_assort']
-xadmin.site.register(Attribute, AttributeAdmin)
+xadmin.site.register(Standard, StandardAdmin)
 
 
-class AttributeOptionAdmin(object):   # 商品属性选项
-    list_display = ['o_name', 'o_attr']
-    list_filter = ['o_name', 'o_attr']
-    search_fields = ['o_name', 'o_attr']
-xadmin.site.register(AttributeOption, AttributeOptionAdmin)
+class AttributeValueAdmin(object):   # 规格属性值 【红色】
+    list_display = ['o_val', 'o_standard']
+    list_filter = ['o_val', 'o_standard']
+    search_fields = ['o_val', 'o_standard']
+xadmin.site.register(AttributeValue, AttributeValueAdmin)
 
 
-class StockAttrOpAdmin(object):   # SKU属性选项
-    list_display = ['s_sku', 's_attr_op', 's_attr']
-    list_filter = ['s_sku', 's_attr_op', 's_attr']
-    search_fields = ['s_sku', 's_attr_op', 's_attr']
-xadmin.site.register(StockAttrOp, StockAttrOpAdmin)
+class SKUAttrValAdmin(object):   # SKU规格属性值
+    list_display = ['s_sku', 's_attr_val', 's_standard']
+    list_filter = ['s_sku', 's_attr_val', 's_standard']
+    search_fields = ['s_sku', 's_attr_val', 's_standard']
+xadmin.site.register(SKUAttrVal, SKUAttrValAdmin)
 
 
 class GoodsDetailBannerAdmin(object):   # 商品详情轮播图

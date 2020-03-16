@@ -25,10 +25,6 @@
                 <!--swiper-->
                 <script src="{% static 'js/swiper.min.js' %}" type="text/javascript" charset="utf-8"></script>
                 <script src="{% static 'js/base.js' %}" type="text/javascript" charset="utf-8"></script>
-
-                {% block custom_js %}
-
-                {% endblock %}
             {% endblock %}
         </head>
     {% endblock %}
@@ -180,5 +176,9 @@
 		</div>
         {% endblock %}
     </body>
+    {% endblock %}
+
+    {% block custom_js %}
+
     {% endblock %}
 </html>

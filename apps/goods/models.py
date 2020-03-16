@@ -115,8 +115,9 @@ class Discount(models.Model):
     def __str__(self):
         return self.d_content
 
-# SPU 标准产品单位
-class Product(models.Model):
+
+# SPU 标准产品单位  【海俪恩美瞳彩色隐形眼镜日抛30片】
+class SPU(models.Model):
     p_name = models.CharField(max_length=255, default='', verbose_name='产品名称')
     p_brand = models.ForeignKey(Brand, on_delete=models.SET_DEFAULT,default='', null=True, blank=True, verbose_name='品牌')
     p_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
@@ -129,17 +130,14 @@ class Product(models.Model):
     def __str__(self):
         return self.p_name
 
-# SKU 库存量单位
-class Stock(models.Model):
+# SKU 库存量单位  【海俪恩美瞳彩色隐形眼镜日抛30片 100度棕色】
+class SKU(models.Model):
     # 需要手动创建一个对象，1000001开始
     s_id = models.BigAutoField(primary_key=True,verbose_name='商品详情ID')
     s_name = models.CharField(max_length=255, default='', verbose_name='商品名')
-    s_product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
+    s_spu = models.ForeignKey(SPU, on_delete=models.CASCADE, verbose_name='所属产品')   # 产品删除，即对应的商品一并删除
     s_price = models.DecimalField(max_digits=8, decimal_places=2,verbose_name='商品价格', default=0)
-
-    # 库存  用库存在处理产品属性选择，如果没有库存即不显示假如购物车
-
-    #
+    s_stock = models.IntegerField(default=0, verbose_name='库存')
 
     class Meta:
         verbose_name = 'SKU管理'
@@ -149,66 +147,70 @@ class Stock(models.Model):
         return self.s_name
 
 
-# 商品属性
-class Attribute(models.Model):
-    a_name = models.CharField(max_length=100, default='', verbose_name='商品属性名')
+# 规格 【颜色】
+class Standard(models.Model):
+    a_name = models.CharField(max_length=100, default='', verbose_name='商品规格')
     a_assort = models.ForeignKey(Assort, on_delete=models.SET_DEFAULT, default=1, verbose_name='所属分类')
-    a_index = models.IntegerField(default=1, verbose_name='规格下标')
 
     class Meta:
-        verbose_name = '属性管理'
+        verbose_name = '规格管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
         return self.a_name
 
 
-# 商品属性选项
-class AttributeOption(models.Model):
-    o_name = models.CharField(max_length=100, default='', verbose_name='商品属性选项名')
-    o_attr = models.ForeignKey(Attribute, on_delete=models.CASCADE, verbose_name='所属商品属性')
+# 规格属性值 【红色】
+class AttributeValue(models.Model):
+    o_val = models.CharField(max_length=100, default='', verbose_name='规格属性值')
+    o_standard = models.ForeignKey(Standard, on_delete=models.CASCADE, verbose_name='所属规格')
 
     class Meta:
-        verbose_name = '属性选项管理'
+        verbose_name = '属性值管理'
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.o_name
+        return self.o_val
 
-# SKU属性选项
-class StockAttrOp(models.Model):
-    s_sku = models.ForeignKey(Stock, on_delete=models.CASCADE, verbose_name='SKU ID')
-    s_attr_op = models.ForeignKey(AttributeOption, on_delete=models.CASCADE, verbose_name='AttributeOption ID')
-    s_attr = models.ForeignKey(Attribute, on_delete=models.CASCADE, verbose_name='Attribute ID')
+
+# SKU规格属性值
+class SKUAttrVal(models.Model):
+    s_sku = models.ForeignKey(SKU, on_delete=models.CASCADE, verbose_name='SKU ID')
+    s_attr_val = models.ForeignKey(AttributeValue, on_delete=models.CASCADE, verbose_name='规格属性值ID')
+    s_standard = models.ForeignKey(Standard, on_delete=models.CASCADE, verbose_name='规格ID')
 
     class Meta:
-        verbose_name = 'SKU属性选项'
+        verbose_name = 'SKU规格属性值'
         verbose_name_plural = verbose_name
 
 # 商品详情轮播图
 class GoodsDetailBanner(models.Model):
     g_big_img = models.ImageField(max_length=100, verbose_name='大图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
     g_small_img = models.ImageField(max_length=100, verbose_name='小图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
-    s_spu = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SPU ID')
+    s_spu = models.ForeignKey(SPU, on_delete=models.CASCADE, verbose_name='SPU ID')
 
     class Meta:
         verbose_name = '商品详情-轮播图'
         verbose_name_plural = verbose_name
 
+    def __str__(self):
+        return self.g_big_img.name
+
 
 # SKU轮播图
 class SkuBanner(models.Model):
-    s_sku = models.ForeignKey(Stock, on_delete=models.CASCADE, verbose_name='SKU ID')
+    s_sku = models.ForeignKey(SKU, on_delete=models.CASCADE, verbose_name='SKU ID')
     s_goods_detail = models.ForeignKey(GoodsDetailBanner, on_delete=models.CASCADE, verbose_name='商品详情轮播图ID', default=1, null=True, blank=True)
 
     class Meta:
         verbose_name = 'SKU轮播图'
         verbose_name_plural = verbose_name
 
+
 # 商品详情图片
 class GoodsDetail(models.Model):
     g_img = models.ImageField(max_length=100, verbose_name='大图片', upload_to='image/%Y/%m',default='', null=True, blank=True)
-    g_spu = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='SPU ID')
+    g_spu = models.ForeignKey(SPU, on_delete=models.CASCADE, verbose_name='SPU ID')
 
     class Meta:
         verbose_name = '商品详情图片'

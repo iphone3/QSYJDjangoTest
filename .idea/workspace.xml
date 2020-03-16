@@ -2,12 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1f4edec7-5d34-4925-b50c-e2fad434647e" name="Default" comment="登录操作">
+      <change beforePath="$PROJECT_DIR$/.idea/QSYJDjangoTest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/atom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/adminx.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/adminx.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0002_auto_20200225_1637.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0003_auto_20200225_1639.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0004_auto_20200225_1640.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0005_hotsell.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0006_hotsell_goods_file.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0007_hotsell_goods_nun.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0008_auto_20200225_2018.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0009_auto_20200225_2020.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0010_auto_20200225_2025.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0011_auto_20200225_2027.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0012_auto_20200225_2110.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0013_auto_20200226_1557.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0014_auto_20200226_1558.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0015_auto_20200226_1611.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0016_auto_20200226_1619.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0017_auto_20200226_1626.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0018_auto_20200226_1640.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0019_auto_20200226_1641.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0020_delete_nursegoods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0021_nursegoods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0022_auto_20200226_1645.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0023_brand_key_num.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0024_nursegoods_add_time.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0025_auto_20200227_0937.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0026_auto_20200228_2208.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0027_auto_20200228_2209.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0028_contactlensgoods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0029_auto_20200229_2124.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0030_auto_20200229_2150.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0031_auto_20200301_1746.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0032_stock_s_price.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0033_auto_20200302_1935.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0034_auto_20200307_1204.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0035_product_p_brand.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0036_auto_20200308_2006.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/migrations/0037_attribute_a_index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/goods/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/goods/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/goods-detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/goods-detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/goods-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/goods-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/goods-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/goods-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base_tp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base_tp.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +260,12 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand />
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@385d3725" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
           <select />
         </treeState>
       </serviceView>
@@ -249,7 +297,7 @@
       <workItem from="1582117141082" duration="14000" />
       <workItem from="1582117167336" duration="26401000" />
       <workItem from="1582538163937" duration="51448000" />
-      <workItem from="1582788837457" duration="87976000" />
+      <workItem from="1582788837457" duration="96679000" />
     </task>
     <task id="LOCAL-00001" summary="xadmin后台管理配置完成">
       <created>1581517516004</created>
