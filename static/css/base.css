@@ -40,6 +40,9 @@ body{
 	cursor:pointer;
 	user-select:none;
 }
+.mouse_disable{  /* 鼠标-手指形状 */
+	cursor: not-allowed;
+}
 .hide{
 	display: none;
 }

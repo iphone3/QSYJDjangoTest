@@ -182,7 +182,8 @@ body{
 }
 
 
-#goods-wrap > .product-intro > .itemInfo-wrap > .submit_bt{
+#goods-wrap > .product-intro > .itemInfo-wrap > .submit_bt,
+#goods-wrap > .product-intro > .itemInfo-wrap > .notify_bt{
 	width: 140px;
 	height: 46px;
 	background: red;
@@ -191,8 +192,24 @@ body{
 	color: white;
 	size: 18px;
 	font-weight: 600;
-	margin: 20px 65px;
+	margin: 20px 15px;
 	border-radius: 5px;
+	font-size: 18px;
+}
+#goods-wrap > .product-intro > .itemInfo-wrap > .submit_disable{
+	background: #f7f7f7;
+	color: #ccc;
+	border: 1px solid #ebebeb;
+	width: 140px;
+	height: 46px;
+	line-height: 46px;
+	text-align: center;
+	size: 18px;
+	font-weight: 600;
+	margin: 20px 15px;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: not-allowed;
 }
 
 

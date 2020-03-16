@@ -51,7 +51,9 @@
 				</div>
 				<!-- 规格选择 -->
 				<div class="itemInfo-wrap">
-					<p class="name">{{sku.s_name}}</p>
+					<p class="name">
+                        {{sku.s_name}}
+                    </p>
 					<p class="oth">商品活动送不停，快来选购吧~  <a href="#" class="collect">[收藏商品]</a></p>
 					<div class="summary">
 						<div class="price">
@@ -103,9 +105,12 @@
 							</div>
 						</div>
 					</div>
-					<div class="submit_bt mouse_p">
+					<div class="submit_bt mouse_p fl">
 						加入购物车
 					</div>
+                    <div class="mouse_p fl notify_bt hide">
+                        到货通知
+                    </div>
 				</div>
 				<!-- 看过的 -->
 				<div class="track-wrap"></div>
@@ -168,7 +173,6 @@
 					<div class="tab-main">
 						<div class="item fl active mouse_p">商品介绍</div>
 						<div class="item fl mouse_p">商品评价(13万+)</div>
-						<div class="add-cart fr mouse_p">加入购物车</div>
 					</div>
 					<div class="tab-cont">
 						<!-- 简介 -->
@@ -696,7 +700,16 @@
                 sz_currentPage1.addClass('select')
 
                 skuid = computter_skuid()
-                window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+                if (skuid){
+                    window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+                } else {
+                    var temp = '{{ spu_name }} '  + sz_currentPage1.text() + sz_currentPage2.text()
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > p.name').text(temp)
+                    // 加入购物按钮处理
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > div.submit_bt').removeClass('submit_bt').addClass('submit_disable')
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > div.mouse_p.fl.notify_bt').removeClass('hide')
+
+                }
             })
             sz_items2.click(function () {
                 // 当前样式处理
@@ -705,7 +718,15 @@
                 sz_currentPage2.addClass('select')
 
                 skuid = computter_skuid()
-                window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+                if (skuid){
+                    window.location.href = sz_currentPage1.attr('data-href') + skuid + '/'
+                } else {
+                    var temp = '{{ spu_name }} '  + sz_currentPage2.text() + sz_currentPage1.text()
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > p.name').text(temp)
+                    // 加入购物按钮处理
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > div.submit_bt').removeClass('submit_bt').addClass('submit_disable')
+                    $('#goods-wrap > div.product-intro.clearfix > div.itemInfo-wrap > div.mouse_p.fl.notify_bt').removeClass('hide')
+                }
             })
 
             // 计算skuid

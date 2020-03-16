@@ -108,37 +108,7 @@ class FavoriteView(View):   # 收藏
 
 class GoodsDetailView(View):    # 商品详情页
     def get(self, request, sku_id):
-        sku = None
-        if sku_id != '0':     # 具体商品
-            # 获取到具体商品的SKU  【具体的商品】
-            sku = Stock.objects.get(s_id=sku_id)
-        elif sku_id == '0':   # 选择某个商品
-            # 获取产品选择属性
-            select_attrs = request.COOKIES['select_attr'].split('_')
-            print(select_attrs)
-
-            # 获取 SKU属性选项
-            stock_attr_op1 = StockAttrOp.objects.filter(s_attr=int(select_attrs[0]), s_attr_op=int(select_attrs[1]))
-            stock_attr_op2 = StockAttrOp.objects.filter(s_attr=int(select_attrs[2]), s_attr_op=int(select_attrs[3]))
-
-            # 获取的SKU可能是多个
-            temp = 1    # 控制是否有找到商品
-            for stock_attr_op1_item in stock_attr_op1:
-                for stock_attr_op2_item in stock_attr_op2:
-                    if stock_attr_op1_item.s_sku == stock_attr_op2_item.s_sku:  # 能找到对应的商品
-                        sku = stock_attr_op1_item.s_sku
-                        temp = 1
-                        break
-                    else:
-                        temp = 0
-
-            if temp == 0:   # 没有找到对应的商品
-                return render(request, 'goods-detail.html')
-
-
-            # return render(request, 'goods-detail.html')
-
-
+        sku = Stock.objects.get(s_id=sku_id)
 
         # 根据SKU获取到SPU 【产品】
         spu = sku.s_product
@@ -305,6 +275,7 @@ class GoodsDetailView(View):    # 商品详情页
         arg_dir = {
             'sku':sku,  # 产品
             'spu_attrs':spu_attrs,  # 产品所有属性
+            'spu_name': spu.p_name, # 产品名称
             'current_attrs':current_attrs, # 当前商品属性
             'skuids':skuids,    # 所有规格、属性值对应的sku_id
             'banners':banners,  # 轮播图
